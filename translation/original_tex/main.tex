@@ -1,0 +1,80 @@
+% Layout adapted from template/bmo_original_main.tex; the original is preserved.
+\documentclass[12pt,a4paper,oneside]{report}
+\title{\textbf{OLS Regression Lecture Notes}\\[0.5em]\large Interpretation, Goodness of Fit, and Unbiasedness}
+\author{\textit{Jintian}-JTST}
+\date{Weeks 2--4\\20 October 2026}
+\usepackage{geometry}
+\geometry{a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[english]{babel}
+\usepackage[UTF8,scheme=plain,fontset=windows]{ctex}
+\usepackage{indentfirst,graphicx,float}
+\usepackage[table]{xcolor}
+\usepackage{booktabs,longtable,array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\hypersetup{unicode=true,colorlinks=true,linkcolor=black,urlcolor=blue!55!black,citecolor=blue!55!black,pdftitle={OLS Regression Notes - Weeks 2-4},pdfauthor={Jintian-JTST},bookmarksnumbered=true}
+\graphicspath{{figures/}{qa/source-crops/}}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}{Example}[section]
+\newtheorem{exercise}{Exercise}[section]
+\definecolor{noteYellow}{RGB}{244,245,128}
+\definecolor{notePink}{RGB}{249,220,237}
+\definecolor{noteBlue}{RGB}{33,54,118}
+\definecolor{noteRed}{RGB}{153,39,43}
+\newcommand{\hy}[1]{\begingroup\setlength{\fboxsep}{1.4pt}\colorbox{noteYellow}{\strut #1}\endgroup}
+\newcommand{\hp}[1]{\begingroup\setlength{\fboxsep}{1.4pt}\colorbox{notePink}{\strut #1}\endgroup}
+\newcommand{\hm}[1]{\begingroup\setlength{\fboxsep}{3pt}\colorbox{noteYellow}{$\displaystyle #1$}\endgroup}
+\newcommand{\blue}[1]{{\color{noteBlue}#1}}
+\newcommand{\red}[1]{{\color{noteRed}#1}}
+\newcommand{\added}[1]{\par\smallskip\noindent{\small\color{noteBlue}\textbf{补充：}#1}}
+\newcommand{\sourcepage}[3]{\par\phantomsection\label{src:w#1p#2}% PDF #2, handwritten #3
+}
+\newcommand{\corr}[1]{\unskip\nobreak\hspace{.08em}\hyperref[err:#1]{\textsuperscript{\color{noteRed}\scriptsize 勘误}}}
+\newcommand{\E}{\operatorname{E}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\Corr}{\operatorname{Corr}}
+\newcommand{\RSS}{\operatorname{RSS}}
+\newcommand{\ESS}{\operatorname{ESS}}
+\newcommand{\TSS}{\operatorname{TSS}}
+\newcommand{\educ}{\mathrm{educ}}
+\newcommand{\wage}{\mathrm{wage}}
+\newcommand{\hsGPA}{\mathrm{hsGPA}}
+\newcommand{\colGPA}{\mathrm{colGPA}}
+\newcommand{\ACT}{\mathrm{ACT}}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\setlist{itemsep=3pt,topsep=5pt}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{0.25em}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+\begin{document}
+\maketitle
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\chapter*{整理说明}
+\addcontentsline{toc}{chapter}{整理说明}
+本笔记依据 Week 2--4 的三份手写扫描稿整理，共 23 页。保留英文正文、中文批注、原有例题与证明的顺序；黄色和粉色重点、红蓝说明按原稿用途保留。版式直接沿用既有 BMO CAMP 笔记的 \texttt{report} 模板。
+
+正文采用核对后的写法；实质修正旁的\corr{notation}链接可跳转至\hyperref[app:errata]{勘误与补充说明}。新增的必要解释标为“补充”。\hyperref[app:sources]{原稿对应表}可按原稿页码定位正文。原始扫描文件原样保存在项目的 \texttt{sources} 目录中。
+
+图形均以 Python/Matplotlib 重画。无原始观测数据的图为\textbf{教学示意图}，不代表真实样本；带数值的拟合优度图由示意数据实际计算所得。纸张商标、扫描水印和印刷联系信息留在原稿副本，不作为课程内容重新排版。
+
+\paragraph{Notation.} $\beta_j$ denotes a fixed population parameter; $\hat\beta_j$ is an OLS estimator (or its realised value when the sample is fixed). $u_i$ is the population error and $\hat u_i=y_i-\hat y_i$ is the fitted residual. Sample covariance, variance and correlation carry an explicit subscript $n$ when a distinction matters. $k$ counts regressors \emph{excluding} the intercept; $n$ is the sample size.
+
+\clearpage
+\pagenumbering{arabic}
+\setcounter{chapter}{1}
+\input{chapters/week2}
+\input{chapters/week3}
+\input{chapters/week4}
+\appendix
+\input{chapters/source_map}
+\input{chapters/errata}
+\end{document}

@@ -1,0 +1,322 @@
+\chapter{Goodness of Fit}
+\label{ch:week3}
+\section{The Simple Regression Case}
+\sourcepage{3}{1}{3/1}
+\label{sec:simple-properties}
+This chapter separates fitted values from residuals and develops the coefficient of determination $R^2$.
+\[y_i=\beta_0+\beta_1x_i+u_i,\qquad
+\hat y_i=\hat\beta_0+\hat\beta_1x_i.\]
+\begin{definition}[Error and residual]
+\[\underbrace{u_i=y_i-\beta_0-\beta_1x_i}_{\text{population error}},\qquad
+\underbrace{\hat u_i=y_i-\hat y_i=y_i-\hat\beta_0-\hat\beta_1x_i}_{\text{OLS residual}}.\]
+The residual is observable after fitting; the error depends on unknown population parameters.
+\end{definition}
+
+\subsection{Three sample properties of OLS with an intercept}
+\paragraph{Property 1: residuals have sample mean zero.}
+OLS minimises $Q(b_0,b_1)=\sum_i(y_i-b_0-b_1x_i)^2$. At the optimum,
+\[\left.\frac{\partial Q}{\partial b_0}\right|_{\hat\beta}
+=-2\sum_{i=1}^n\hat u_i=0
+\quad\Longrightarrow\quad\hm{\sum_i\hat u_i=0},\quad\bar{\hat u}=0.\]
+
+\paragraph{Property 2: residuals are sample-orthogonal to $x$.}
+The slope first-order condition is
+\[\left.\frac{\partial Q}{\partial b_1}\right|_{\hat\beta}
+=-2\sum_i x_i\hat u_i=0.\]
+Consequently,
+\begin{align*}
+\Cov_n(x,\hat u)
+&=\frac1n\sum_i(x_i-\bar x)(\hat u_i-\bar{\hat u})\\
+&=\frac1n\left(\sum_i x_i\hat u_i-\bar x\sum_i\hat u_i\right)=0.
+\end{align*}
+\hy{Residuals are uncorrelated with $x$ in the sample}. Correlation itself is undefined if a variance is zero; orthogonality remains a valid statement.
+
+Each observation decomposes into $y_i=\hat y_i+\hat u_i$, with fitted values and residuals sample-orthogonal:
+\[\sum_i\hat y_i\hat u_i
+=\hat\beta_0\sum_i\hat u_i+\hat\beta_1\sum_i x_i\hat u_i=0.\]
+
+\paragraph{Population moments: a separate statement.}
+The population moments can be obtained using the law of iterated expectations. Under $\E[u\mid x]=0$ and the required integrability,
+\[\E[u]=\E\{\E[u\mid x]\}=0,\qquad
+\E[xu]=\E\{x\E[u\mid x]\}=0.\]
+\red{These population restrictions do not prove the sample normal equations.} The sample identities above follow mechanically from minimising squared residuals, even if the population exogeneity assumption is false.\corr{sample-population}
+
+\paragraph{Property 3: the sample mean lies on the fitted line.}
+Since $\hat\beta_0=\bar y-\hat\beta_1\bar x$,
+\[\hm{\bar y=\hat\beta_0+\hat\beta_1\bar x}.\]
+Alternatively, average $\hat y_i=\hat\beta_0+\hat\beta_1x_i$:
+\[\bar{\hat y}=\frac1n\sum_i\hat y_i=\hat\beta_0+\hat\beta_1\bar x,
+\qquad\bar y=\bar{\hat y}+\bar{\hat u}=\bar{\hat y}.\]
+The \emph{population} counterpart is $\E[y]=\beta_0+\beta_1\E[x]$ if $\E[u]=0$; it uses population coefficients, not fitted hats.\corr{sample-population}
+
+\section{Sums of Squares and Goodness of Fit}
+\sourcepage{3}{2}{3/2}
+\label{sec:ss-decomposition}
+\begin{definition}[TSS, ESS and RSS]
+\begin{align}
+\TSS&=\sum_{i=1}^n(y_i-\bar y)^2=(n-1)s_y^2,\label{eq:tss}\\
+\ESS&=\sum_{i=1}^n(\hat y_i-\bar y)^2,\label{eq:ess}\\
+\RSS&=\sum_{i=1}^n\hat u_i^2=\sum_{i=1}^n(y_i-\hat y_i)^2.\label{eq:rss}
+\end{align}
+Here $s_y^2=\sum_i(y_i-\bar y)^2/(n-1)$ is the sample variance.
+\end{definition}
+\blue{TSS：$y$ 围绕均值的总波动；ESS：回归线所解释的波动；RSS：回归未解释的残差波动。} Here ESS means \emph{explained} sum of squares; other books sometimes use different abbreviations.
+
+\begin{theorem}[Sum-of-squares decomposition]
+For OLS with an intercept,
+\begin{equation}\label{eq:anova}
+\hm{\TSS=\ESS+\RSS}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Since $y_i-\bar y=(\hat y_i-\bar y)+\hat u_i$,
+\begin{align*}
+\TSS
+&=\sum_i\bigl[(\hat y_i-\bar y)+\hat u_i\bigr]^2\\
+&=\sum_i(\hat y_i-\bar y)^2+\sum_i\hat u_i^2
+  +2\sum_i\hat u_i(\hat y_i-\bar y).
+\end{align*}
+The cross-term is zero because $\sum_i\hat u_i\hat y_i=0$ and $\sum_i\hat u_i=0$. Hence \eqref{eq:anova} follows.
+\end{proof}
+\blue{OLS 的目标是使 $\sum_i\hat u_i^2$ 最小，而不是使 $\sum_i\hat u_i$ 最小；后者为零来自截距的一阶条件。}
+
+\subsection[Definition and interpretation of R-squared]{Definition and interpretation of $R^2$}
+For $\TSS>0$, define
+\begin{equation}\label{eq:r2}
+\hm{R^2=\frac{\ESS}{\TSS}=1-\frac{\RSS}{\TSS}\in[0,1]}.
+\end{equation}
+\textbf{Interpretation.} $R^2$ measures the \hy{proportion of sample variation in $y$} explained by the fitted regressors. For example, $R^2=0.85$ means $85\%$ of the sample variation in the dependent variable is explained by the regression.
+
+If every point lies on the fitted line, $y_i=\hat y_i$, then $\RSS=0$, $\TSS=\ESS$, and $R^2=1$. This is the perfect-fit case.
+\begin{figure}[htbp]
+\centering\includegraphics[width=.68\linewidth]{perfect_fit.pdf}
+\caption{The source's perfect-fit case: all schematic observations lie on the fitted line.}
+\label{fig:perfect-fit}
+\end{figure}
+
+\subsection{Squared correlation interpretation}
+When $y$ and $\hat y$ both have positive sample variance,
+\begin{equation}\label{eq:r2-correlation}
+R^2=\Corr_n(y,\hat y)^2
+=\frac{\left[\sum_i(y_i-\bar y)(\hat y_i-\bar y)\right]^2}
+{\left[\sum_i(y_i-\bar y)^2\right]\left[\sum_i(\hat y_i-\bar y)^2\right]}.
+\end{equation}
+To see this, use $y_i=\hat y_i+\hat u_i$, $\bar y=\bar{\hat y}$ and sample orthogonality:
+\[\Cov_n(y,\hat y)=\Var_n(\hat y),\qquad
+\Corr_n(y,\hat y)^2=\frac{\Var_n(\hat y)}{\Var_n(y)}=\frac{\ESS}{\TSS}.
+\]
+\added{If all $y_i$ are equal, TSS is zero and this centred $R^2$ is undefined. If $\hat y$ is constant while $y$ varies, $R^2=0$ but $\Corr_n(y,\hat y)$ is undefined; the squared-correlation formula then cannot be evaluated.}\corr{r2-degenerate}
+
+\subsection{Graphical comparison}
+\sourcepage{3}{3}{3/3}
+\begin{figure}[htbp]
+\centering\includegraphics[width=.95\linewidth]{r_squared_comparison.pdf}
+\caption{Schematic samples with the source's $R^2=0.94$ and $R^2=0.64$. The labels are computed from the generated points and fitted lines.}
+\label{fig:r2-comparison}
+\end{figure}
+High $R^2$ corresponds to a smaller residual \emph{share} $\RSS/\TSS$; low $R^2$ corresponds to a larger residual share. \blue{仅靠当前回归变量，对 $y$ 的样本波动解释得较少。} Comparing absolute RSS across different samples or differently scaled outcomes is not justified by $R^2$ alone.\corr{r2-rss}
+
+\section{The Multiple Regression Case}
+\label{sec:multiple-properties}
+The model, fitted values and residuals are
+\begin{align*}
+y_i&=\beta_0+\beta_1x_{1i}+\cdots+\beta_kx_{ki}+u_i,\\
+\hat y_i&=\hat\beta_0+\hat\beta_1x_{1i}+\cdots+\hat\beta_kx_{ki},\\
+\hat u_i&=y_i-\hat y_i.
+\end{align*}
+The three sample properties extend to multiple regression as follows.
+
+\paragraph{Property 1: residuals have mean zero.}
+With $Q(b)=\sum_i(y_i-b_0-\sum_{j=1}^k b_jx_{ji})^2$,
+\[\left.\frac{\partial Q}{\partial b_0}\right|_{\hat\beta}
+=-2\sum_i\hat u_i=0
+\quad\Longrightarrow\quad\sum_i\hat u_i=0,\quad\bar{\hat u}=0.\]
+
+\paragraph{Property 2: residuals are sample-orthogonal to every included regressor.}
+For each $j=1,\ldots,k$,
+\[\left.\frac{\partial Q}{\partial b_j}\right|_{\hat\beta}
+=-2\sum_i x_{ji}\hat u_i=0
+\quad\Longrightarrow\quad\hm{\sum_i x_{ji}\hat u_i=0}.\]
+Together with the intercept condition, this gives $\Cov_n(x_j,\hat u)=0$.
+
+\paragraph{Property 3: the vector of sample means lies on the fitted hyperplane.}
+Averaging $y_i=\hat y_i+\hat u_i$ gives $\bar y=\bar{\hat y}$. Hence
+\begin{align*}
+\bar y
+&=\frac1n\sum_i\left(\hat\beta_0+\hat\beta_1x_{1i}+\cdots+\hat\beta_kx_{ki}\right)\\
+&=\hm{\hat\beta_0+\hat\beta_1\bar x_1+\cdots+\hat\beta_k\bar x_k}.
+\end{align*}
+The same proof of \eqref{eq:anova} gives TSS $=$ ESS $+$ RSS and the same formula for $R^2$ in multiple OLS with an intercept.
+
+\section[Adding Regressors and Adjusted R-squared]{Adding Regressors and Adjusted $R^2$}
+\sourcepage{3}{4}{3/4}
+\label{sec:adjusted-r2}
+Recall
+\[\TSS=\sum_i(y_i-\bar y)^2,\quad
+\ESS=\sum_i(\hat y_i-\bar y)^2,\quad
+\RSS=\sum_i(y_i-\hat y_i)^2.\]
+What happens to $R^2$ if more regressors are added?
+\begin{itemize}
+\item With the \emph{same observations and outcome}, and an intercept in both nested models, the new least-squares RSS cannot exceed the old RSS: the old fit remains available by setting the new coefficients to zero.
+\item Thus $R^2$ \hy{cannot decrease}; it may stay exactly unchanged. Repeatedly adding variables can overfit the sample.\corr{r2-monotonic}
+\item $R^2$ does not establish a causal relationship. A high $R^2$ need not mean causation, and a low $R^2$ does not rule it out.
+\end{itemize}
+
+\subsection{Degrees-of-freedom adjustment}
+For $k$ regressors excluding the intercept, $n>k+1$ and $\TSS>0$,
+\begin{equation}\label{eq:adjusted-r2}
+\hm{\bar R^2=1-\frac{\RSS/(n-k-1)}{\TSS/(n-1)}
+=1-\frac{n-1}{n-k-1}(1-R^2)}.
+\end{equation}
+\blue{自由度修正：增加回归变量会受到惩罚，RSS 的减少必须足以补偿损失的自由度。}
+\begin{itemize}
+\item $\bar R^2$ penalises the number of regressors; it can decrease when another regressor is added.
+\item It can be negative when the residual mean square exceeds the mean-only baseline mean square.
+\item A rise in $\bar R^2$ means a sufficient in-sample fit improvement under this adjustment, not proof of substantive importance or causality.
+\end{itemize}
+\added{For $q$ added regressors, $\bar R^2$ rises precisely when
+\[
+\frac{(\RSS_{\rm old}-\RSS_{\rm new})/q}{\RSS_{\rm new}/(n-k_{\rm new}-1)}>1,
+\]
+assuming a positive denominator. This is a descriptive partial-$F$ threshold of 1, not a conventional significance cutoff.}\corr{adjusted-meaning}
+
+\begin{example}[GPA: the trade-off in the original note]
+Using the displayed rounded values and $n=141$:
+\begin{align*}
+\text{hsGPA only: }\quad &R^2=0.172,\quad k=1,\\
+&\bar R^2=1-\frac{140}{139}(1-0.172)=0.166043\ldots,\\
+\text{hsGPA and ACT: }\quad &R^2=0.176,\quad k=2,\\
+&\bar R^2=1-\frac{140}{138}(1-0.176)=0.164058\ldots.
+\end{align*}
+Adding ACT raises ordinary $R^2$, while adjusted $R^2$ falls slightly. These values are computed from the source's rounded inputs, so precision beyond the shown inputs is only arithmetic precision.
+\end{example}
+
+\paragraph{注意（保留原稿的三点提醒）.}
+\begin{enumerate}
+\item $R^2$ describes sample fit: 高 $R^2\ne$ 因果，低 $R^2\ne$ 没有因果。
+\item Adding variables can overfit; adjusted $R^2$ supplies a penalty, but does not by itself certify out-of-sample performance.
+\item A good fit does not automatically eliminate omitted-variable bias.
+\end{enumerate}
+
+
+\section{Regression through the Origin and Demeaning}
+\sourcepage{3}{5}{3/5}
+\label{sec:rto}
+Recall $\hat\beta_0=\bar y$ for an \emph{intercept-only} regression; the proof appears below. This identity does not apply to an arbitrary regression containing $x$.
+
+\subsection{Regression through the origin (RTO)}
+Sometimes a model is restricted to pass through the origin, for example a production relation in which zero input is assumed to imply zero expected output. This is an additional modelling restriction, not an automatic property of production data.
+\[y_i=\beta_1^{\rm RTO}x_i+u_i,\qquad
+\hat y_i=\check\beta_1x_i,\qquad\check u_i=y_i-\hat y_i.\]
+Use a check accent here to distinguish this fitted slope and its residual from OLS with an intercept. Minimising
+\[Q(b_1)=\sum_i(y_i-b_1x_i)^2\]
+gives the first-order condition
+\[\sum_i x_i(y_i-\check\beta_1x_i)=0
+\quad\Longrightarrow\quad
+\hm{\check\beta_1=\frac{\sum_i x_iy_i}{\sum_i x_i^2}}
+\quad\text{if }\sum_i x_i^2>0.
+\]
+
+\subsection{Demeaned variables reproduce the slope with an intercept}
+Define $A_i=y_i-\bar y$ and $B_i=x_i-\bar x$. A through-origin regression of $A_i$ on $B_i$ has slope
+\[\frac{\sum_iB_iA_i}{\sum_iB_i^2}
+=\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}{\sum_i(x_i-\bar x)^2}
+=\hat\beta_1.\]
+Thus a no-intercept regression of \emph{demeaned} variables reproduces the slope in ordinary OLS \emph{with} an intercept. It does not mean an uncentred no-intercept regression gives the same slope.\corr{demeaning}
+
+For OLS with an intercept,
+\[y_i-\bar y=\hat\beta_1(x_i-\bar x)+\hat u_i.\]
+\blue{截距项使回归线经过样本均值 $(\bar x,\bar y)$；去均值相当于平移坐标，不改变斜率。}
+\begin{figure}[htbp]
+\centering\includegraphics[width=.95\linewidth]{demeaning.pdf}
+\caption{Demeaning shifts the sample mean to the origin and preserves the fitted slope. Schematic observations.}
+\label{fig:demeaning}
+\end{figure}
+
+\paragraph{原稿页底重复的例式（保留可见内容）.}
+The scan ends with the repeated example
+\[\wage=\beta_0+\beta_1\educ+u,\]
+and the list of unobservable factors: intelligence, family background, experience, training, etc. These factors are again relevant to the exogeneity discussion in Week 2. No continuation beyond the visible scan is inferred.
+
+\subsection{OLS formulas, repeated as in the supplementary sheet}
+\sourcepage{3}{6}{supplementary derivation sheet}
+With an intercept,
+\[\hat\beta_1=\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}{\sum_i(x_i-\bar x)^2},
+\qquad\hat\beta_0=\bar y-\hat\beta_1\bar x.\]
+Without an intercept,
+\begin{align*}
+\frac{d}{db_1}\sum_i(y_i-b_1x_i)^2&=-2\sum_i x_i(y_i-b_1x_i),\\
+\sum_i x_iy_i-\check\beta_1\sum_i x_i^2&=0,\\
+\check\beta_1&=\frac{\sum_i x_iy_i}{\sum_i x_i^2}.
+\end{align*}
+
+\paragraph{Why does demeaning work? 去均值.}
+Let $x_i^*=x_i-\bar x$ and $y_i^*=y_i-\bar y$. Regress $y_i^*$ on $x_i^*$ without an intercept:
+\[\hat\gamma=\frac{\sum_i x_i^*y_i^*}{\sum_i(x_i^*)^2}
+=\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}{\sum_i(x_i-\bar x)^2}=\hat\beta_1.\]
+Hence: OLS with an intercept $\Longleftrightarrow$ demeaned OLS without an intercept, for the slope. The sample-mean point becomes $(0,0)$ without rotating the fitted line.
+
+\paragraph{Demeaning is regression on a constant.}
+In an intercept-only regression $y_i=b_0+e_i$,
+\[\frac{d}{db_0}\sum_i(y_i-b_0)^2=-2\sum_i(y_i-b_0)=0
+\quad\Longrightarrow\quad\hat b_0=\bar y.\]
+Its residual is $y_i-\bar y$. Likewise, regressing $x_i$ on a constant yields residual $x_i-\bar x$.
+
+\subsection{Partialling out: the FWL theorem}
+\label{sec:fwl-week3}
+For $y_i=\beta_0+\beta_1x_i+\beta_2z_i+u_i$, the source's three-step recipe is:
+\begin{enumerate}
+\item Regress $y$ on $(1,z)$ and obtain residuals $r_{yi}$.
+\item Regress $x$ on $(1,z)$ and obtain residuals $r_{xi}$.
+\item Regress $r_y$ on $r_x$ without an intercept.
+\end{enumerate}
+The result is
+\[\hm{\hat\beta_1=\frac{\sum_i r_{xi}r_{yi}}{\sum_i r_{xi}^2}}.\]
+Demeaning is the special case where the only variable being partialled out is a constant. This retains the source's connection between the two procedures.
+
+\section{OLS Properties without an Intercept}
+\sourcepage{3}{7}{3/6}
+\label{sec:rto-properties}
+Return to the RTO objective and its only coefficient first-order condition:
+\[\min_{b_1}\sum_i(y_i-b_1x_i)^2,\qquad
+-2\sum_i x_i(y_i-\check\beta_1x_i)=0
+\quad\Longrightarrow\quad\sum_i x_i\check u_i=0.\]
+There is no intercept coefficient with respect to which to differentiate.
+
+\paragraph{Property 1: mean-zero residuals need not hold.}
+The condition $\sum_i\check u_i=0$ is no longer imposed; it can hold in special samples, but is not guaranteed.
+
+\paragraph{Property 2: orthogonality survives, covariance need not.}
+We still have $\sum_i x_i\check u_i=0$. However,
+\[\Cov_n(x,\check u)=\frac1n\sum_i x_i\check u_i-\bar x\bar{\check u}
+=-\bar x\bar{\check u},\]
+which is generally nonzero. \red{不能在无截距时把“内积为零”直接写成“样本不相关”。}\corr{rto-covariance}
+
+\paragraph{Property 3: the sample mean need not lie on the line.}
+Averaging $y_i=\check\beta_1x_i+\check u_i$ gives
+\[\bar y=\check\beta_1\bar x+\bar{\check u}.\]
+Thus $\bar y=\check\beta_1\bar x$ is not generally true. With an intercept, by contrast, $\bar{\hat u}=0$ implies $\bar y=\bar{\hat y}$.
+
+\subsection[Centred R-squared may be negative]{Centred $R^2$ may be negative}
+Using the same centred definitions of TSS and ESS,
+\begin{equation}\label{eq:rto-cross-term}
+\TSS=\ESS+\RSS+2\sum_i\check u_i(\hat y_i-\bar y).
+\end{equation}
+For a through-origin fit, $\sum_i\check u_i\hat y_i=0$ but $\sum_i\check u_i$ need not vanish. Consequently the cross-term need not be zero.\corr{rto-cross-term}
+The centred statistic
+\[R_c^2=1-\frac{\RSS}{\TSS}\]
+can be negative: the forced-through-origin line then fits worse in squared-error terms than the horizontal mean-only line $\bar y$.
+\begin{figure}[htbp]
+\centering\includegraphics[width=.8\linewidth]{through_origin_negative_r2.pdf}
+\caption{A through-origin fit worse than the mean-only baseline. Schematic data $x=(1,2,3,4,5)$, $y=(9,10,10,11,10)$ produce the negative centred $R^2$ computed in the figure.}
+\label{fig:negative-r2}
+\end{figure}
+\added{Some software reports an \emph{uncentred} statistic $R_u^2=1-\RSS/\sum_i y_i^2$ for a model without an intercept. Its baseline is zero rather than $\bar y$, so it is not directly comparable with the usual centred $R^2$ of a model with an intercept.}\corr{rto-r2}
+
+\subsection*{Chapter recap / 本章小结}
+\addcontentsline{toc}{subsection}{Chapter recap / 本章小结}
+\begin{itemize}
+\item With an intercept, OLS residuals have zero mean, are sample-orthogonal to included regressors, and yield TSS $=$ ESS $+$ RSS.
+\item Ordinary $R^2$ cannot fall when regressors are added to a nested model on the same data; adjusted $R^2$ can fall.
+\item Demeaning and FWL preserve the relevant full-model slope. Omitting the intercept changes the mean, covariance and centred-$R^2$ properties.
+\end{itemize}

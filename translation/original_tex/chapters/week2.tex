@@ -1,0 +1,333 @@
+\chapter{Interpretation of OLS Regression}
+\label{ch:week2}
+\section{Simple Ordinary Least Squares}
+\sourcepage{2}{1}{2/1}
+\label{sec:simple-interpretation}
+\subsection{Model and the ceteris paribus interpretation}
+The simple regression model is
+\begin{equation}\label{eq:simple-model}
+ y_i=\beta_0+\beta_1x_i+u_i.
+\end{equation}
+For another observation, $y_{i'}=\beta_0+\beta_1x_{i'}+u_{i'}$. 不同 observation 对应不同的 $u$；因此不能只因 $x$ 不同就把 $y$ 的全部变化归于 $x$。
+Subtracting the two equations gives
+\[\hm{\Delta y=\beta_1\Delta x+\Delta u}.\]
+If $u$ does not change, $y$ changes by $\beta_1$ times the change in $x$:
+\[\Delta u=0\quad\Longrightarrow\quad
+\hy{$\Delta y=\beta_1\Delta x$},\qquad
+\beta_1=\frac{\Delta y}{\Delta x}\quad(\Delta x\ne0).\]
+\textbf{Interpretation.} \hy{Other factors being equal}, one unit increase in $x$ is associated with a $\beta_1$ unit increase in $y$. $\beta_1$ is the \hy{marginal effect of $x$ on $y$} in this linear model when $u$ is held fixed. 如果系数为负，应将“increase”读作相应的减少。
+
+\subsection{Assumptions about the error}
+\begin{enumerate}
+\item \hy{$\E[u]=0$}: 均值为零。With an unrestricted intercept this can be achieved by normalisation. If $\E[u]=\alpha$, let $\varepsilon=u-\alpha$; then $\E[\varepsilon]=0$ and
+\[y=\beta_0+\beta_1x+u=(\beta_0+\alpha)+\beta_1x+\varepsilon.\]
+The intercept absorbs the nonzero mean; this does not by itself establish exogeneity.\corr{mean-normalisation}
+\item \hy{Zero Conditional Mean (ZCM)}，零条件均值假设：
+\begin{equation}\label{eq:zcm-simple}
+\hm{\E[u\mid x]=0}.
+\end{equation}
+The expected value of $u$ does not depend on the value of $x$. With the first normalisation, $\E[u\mid x]=\E[u]=0$. 原稿亦称其为 \hy{exogeneity assumption}（外生性假设）。
+\end{enumerate}
+\begin{example}[Education and wages]
+\[\wage=\beta_0+\beta_1\educ+u.\]
+Unobserved factors include intelligence, family background, experience, training, etc. 在 ZCM 下，教育是 12 年还是 16 年，未观测因素 $u$ 的\emph{条件平均值}都相同；不是说每个人的能力和背景完全相同。
+\blue{现实中很难控制所有未观测因素。}能力、背景可能与教育相关，因此这个假设并非天然合理。\red{Random assignment 可以帮助建立外生性}，但仍须结合实际研究设计核查。
+\end{example}
+% The rest of this chapter is appended after the GPA example below.
+
+\subsection{Population regression function and fitted regression line}
+\sourcepage{2}{2}{2/2}
+Under \eqref{eq:zcm-simple}, the \hy{population regression function (PRF)}（总体回归函数）is
+\begin{align}
+\E[y\mid x]
+&=\E[\beta_0+\beta_1x+u\mid x] \notag\\
+&=\E[\beta_0+\beta_1x\mid x]+\E[u\mid x] \notag\\
+&=\hm{\beta_0+\beta_1x}.\label{eq:prf}
+\end{align}
+给定 $x$ 后，$\beta_0+\beta_1x$ 为常数。$\beta_0$ is the intercept and $\beta_1$ is the slope of the PRF. The PRF is linear in $x$ in this simple level--level specification.
+\begin{figure}[htbp]
+\centering\includegraphics[width=.82\linewidth]{conditional_means.pdf}
+\caption{Population conditional means at different $x$ values. Side curves indicate conditional distributions; this is a schematic illustration, not observed data.}
+\label{fig:conditional-means}
+\end{figure}
+\paragraph{OLS: 普通最小二乘法.}
+The \textbf{fitted} or sample regression line is
+\begin{equation}\label{eq:fitted-simple}
+\hat y_i=\hat\beta_0+\hat\beta_1x_i,
+\qquad \hat\beta_0=\bar y-\hat\beta_1\bar x.
+\end{equation}
+For sample variation in $x$,
+\begin{equation}\label{eq:simple-slope}
+\hm{\hat\beta_1=
+\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}{\sum_i(x_i-\bar x)^2}
+=\frac{\Cov_n(x,y)}{\Var_n(x)}
+=r_{xy}\frac{s_y}{s_x}}.
+\end{equation}
+Here $r_{xy}=\Cov_n(x,y)/(s_xs_y)$. The numerator and denominator use the same covariance normalisation.\corr{slope-correlation}
+
+\textbf{Slope.} Other factors being equal, a one-unit increase in $x$ is \hy{associated with} a \hy{predicted $\hat\beta_1$-unit increase} in $y$.
+\blue{原稿例式：$y=\beta_0+\beta_1x+\beta_2z+\beta_3w+u$；若 $z,w$ 遗漏，简单回归系数可能把它们的影响一并算入。}
+
+\red{相关不等于因果。}Without a justified data-generating process and identification assumptions, say ``associated with'' or ``correlated with'', rather than ``causes'', ``makes'' or ``leads to''. 若模型具有可辩护的结构性、外生性及因果识别条件，才可进一步解释为因果效应。\corr{causality}
+
+\textbf{Intercept.} The fitted value of $y$ at $x=0$ is $\hat\beta_0$; under \eqref{eq:prf}, the population conditional mean at $x=0$ is $\beta_0$. This may be an extrapolation when $0$ is outside the observed or feasible range.
+
+The fitted line depends on the sample; the population line is fixed but unknown. 原稿的 salary--roe 例式保留为
+\[\widehat{\mathrm{salary}}=963.191+18.501\,\mathrm{roe}.\]
+\begin{figure}[htbp]
+\centering\includegraphics[width=.8\linewidth]{fitted_population.pdf}
+\caption{Fitted versus population regression line, following the original salary--roe sketch. The population line is schematic, not an estimated benchmark.}
+\label{fig:fitted-population}
+\end{figure}
+
+\subsection{Worked examples: units and percentage points}
+\sourcepage{2}{3}{2/3}
+\begin{example}[Hourly wage: 注意单位]\label{ex:wage-units}
+The original specification measures hourly wage in \hy{thousands of dollars}, with education in years:
+\[\wage=\beta_0+\beta_1\educ+u,\qquad
+\widehat{\wage}=-0.9+0.54\educ.\]
+Anson earns \$6 per hour and has 12 years of education. What would the model predict for him with 16 years, holding the unobserved component fixed?
+\begin{align*}
+\widehat{\wage}_{12}&=-0.9+0.54(12)=5.58\quad\text{(thousand dollars/hour)},\\
+\hat u_{\rm Anson}&=0.006-5.58=-5.574,\\
+\Delta\widehat{\wage}&=0.54(16-12)=2.16\quad\text{(thousand dollars/hour)},\\
+\widehat{\wage}_{16}&=-0.9+0.54(16)=7.74.
+\end{align*}
+If the fitted residual is carried over unchanged in this model exercise,
+\[\wage_{16}^{\rm scenario}=7.74-5.574=2.166,
+\qquad\text{or }\$2{,}166\text{ per hour}.\]
+Equivalently,
+\[\hp{New scenario wage = old actual wage + modelled change},\]
+\[\$6+(\$0.54\times10^3\times4)=\$2{,}166.\]
+\added{The unusually large numbers follow the \emph{thousands} unit explicitly written in the source; they have not been silently changed to dollars. Keeping a person's error or fitted residual fixed is a hypothetical assumption, not an identified individual counterfactual or a guaranteed future actual wage.}\corr{wage-counterfactual}
+\end{example}
+
+\begin{exercise}[Election expenditure]\label{ex:election}
+\[\widehat{\mathrm{voteA}}=26.81+0.464\,\mathrm{shareA}.\]
+Here voteA is candidate A's vote percentage; shareA is A's percentage share of the two candidates' total campaign expenditure. A one-\hy{percentage-point} increase in shareA is associated with a 0.464-percentage-point increase in predicted voteA.
+\begin{enumerate}
+\item If shareA is $40\%$, enter $40$, not $0.40$:
+\[\widehat{\mathrm{voteA}}=26.81+0.464(40)=\hm{45.37\%}.\]
+If A spent nothing, the fitted value is $26.81$; if A accounted for all expenditure, it is $26.81+0.464(100)=73.21$. These are predictions from the fitted line, not election guarantees.
+\item If candidate B spends 2 billion dollars, how much must A spend for the \emph{predicted} vote share to exceed $50\%$?
+\begin{align*}
+26.81+0.464\,\mathrm{shareA}&>50,\\
+\mathrm{shareA}&>\frac{23.19}{0.464}=49.978448\ldots.
+\end{align*}
+\added{Let $A$ be expenditure in billions of dollars. Since $\mathrm{shareA}=100A/(A+2)$,
+\[A>\frac{2(49.978448\ldots)}{100-49.978448\ldots}
+=1.9982766\ldots\ \text{billion dollars}.\]
+The strict inequality gives a threshold, not an attained minimum over continuous expenditure; actual victory cannot be guaranteed by this regression.}\corr{election}
+\end{enumerate}
+\end{exercise}
+
+\section{Interpretation of Multiple OLS}
+\sourcepage{2}{4}{2/4}
+\label{sec:multiple-interpretation}
+The population model and fitted line are
+\begin{align}
+y&=\beta_0+\beta_1x_1+\cdots+\beta_kx_k+u,\label{eq:multiple-model}\\
+\hat y&=\hat\beta_0+\hat\beta_1x_1+\cdots+\hat\beta_kx_k.\label{eq:multiple-fitted}
+\end{align}
+For a fixed fitted equation,
+\[\hm{\Delta\hat y=\hat\beta_1\Delta x_1+\cdots+\hat\beta_k\Delta x_k}.\]
+Holding all the other $x_j$ fixed gives
+\[\Delta\hat y=\hat\beta_\ell\Delta x_\ell,
+\qquad\frac{\Delta\hat y}{\Delta x_\ell}=\hat\beta_\ell.
+\]
+\textbf{Partial effect.} In the population model, $\beta_\ell=\Delta y/\Delta x_\ell$ when all other regressors \emph{and} $u$ are held fixed; under ZCM it is also the partial slope of $\E[y\mid x_1,\ldots,x_k]$.\corr{notation}
+\[\hy{$\E[u\mid x_1,\ldots,x_k]=0$}.\]
+Including other explanatory variables permits their observed values to be held fixed in the fitted comparison. \blue{不需要 $x_\ell$ 与其他 $x_j$ 互不相关；只需避免完全共线性，才能区分各自系数。}
+
+\begin{example}[College GPA]\label{ex:gpa}
+\[\widehat{\colGPA}=1.29+0.453\hsGPA+0.0094\ACT.\]
+The original ranges are colGPA: $0$--$4$; hsGPA: $1$--$4$; ACT (Achievement Test score): $0$--$36$.
+\begin{description}
+\item[hsGPA.] Holding ACT and all other factors fixed, another point in high-school GPA is associated with a predicted 0.453-point increase in college GPA.
+\item[ACT.] Holding hsGPA and all other factors fixed, another point in ACT is associated with a predicted 0.0094-point increase in college GPA.
+\item[Intercept.] The fitted college GPA at zero hsGPA and zero ACT is $1.29$. \red{Zero hsGPA is outside the stated range}, so this is an extrapolation, not the predicted GPA of an observed subgroup.
+\end{description}
+\begin{enumerate}
+\item If hsGPA rises from $3.5$ to $3.6$ with ACT fixed,
+\[\Delta\widehat{\colGPA}=(3.6-3.5)(0.453)=0.0453.\]
+\item Anson has hsGPA $3.5$ and ACT $30$; Betty has hsGPA $3.0$ and ACT $36$:
+\begin{align*}
+\widehat{\colGPA}_{A}&=1.29+0.453(3.5)+0.0094(30)=3.1575,\\
+\widehat{\colGPA}_{B}&=1.29+0.453(3.0)+0.0094(36)=2.9874.
+\end{align*}
+\item If Anson's actual GPA is $3.3$, can we infer Betty's actual GPA? No. \blue{每个人的 $u$ 不同，不能由一个人的实际值推出另一个人的实际值。} Anson's realised residual is $3.3-3.1575=0.1425$; Betty's residual is unknown.
+\end{enumerate}
+\end{example}
+
+
+\section{Control Variables and the Frisch--Waugh--Lovell Theorem}
+\sourcepage{2}{5}{2/5}
+\label{sec:fwl-week2}
+\subsection{Why introduce controls?}
+Suppose the question is the effect of education $x_1$ on wages $y$, and ability $x_2$ also matters:
+\[y=\beta_0+\beta_1x_1+\beta_2x_2+u.\]
+If ability is omitted, the short equation $y=\tilde\beta_0+\tilde\beta_1x_1+v$ may attribute ability's influence to education. This is \hp{omitted variable bias}（遗漏变量偏误）when ability both affects wages and is associated with education.
+
+There are two interpretations of controlling:
+\begin{enumerate}
+\item \hy{Holding constant}: compare changes in $x_1$ while holding $x_2$ fixed.
+\item \hy{Partialling out}: remove the linear component explained by $x_2$ before reading the coefficient on $x_1$.
+\end{enumerate}
+\blue{二者描述的是同一个多元回归系数；FWL 将“排除其他变量的线性影响”写成可计算的步骤。}
+
+\subsection{Residualising the regressor}
+In the sample, first regress $x_1$ on a constant and $x_2$:
+\begin{equation}\label{eq:fwl-x}
+x_{1i}=\hat\delta_0+\hat\delta_1x_{2i}+\hat r_{1i}.
+\end{equation}
+The residual $\hat r_{1i}$ is the part of $x_{1i}$ \hy{not linearly explained by $x_2$}; it satisfies
+\[\sum_i\hat r_{1i}=0,\qquad\sum_i x_{2i}\hat r_{1i}=0.\]
+Regress $y_i$ on a constant and $\hat r_{1i}$. Its slope is exactly the coefficient on $x_1$ in the original multiple OLS regression:
+\begin{equation}\label{eq:fwl-one-sided}
+\hm{\hat\beta_1=
+\frac{\Cov_n(\hat r_1,y)}{\Var_n(\hat r_1)}
+=\frac{\sum_i\hat r_{1i}y_i}{\sum_i\hat r_{1i}^2}}.
+\end{equation}
+Thus $\hat\beta_1$ measures the fitted relationship between $y$ and the variation in $x_1$ left after removing its linear relationship with $x_2$. \blue{将 $x_1$ 对控制变量回归，留下不被它们线性解释的部分。}
+
+\added{For the standard two-sided FWL regression, also regress $y$ on $(1,x_2)$ and obtain $\hat r_{yi}$. Regress $\hat r_y$ on $\hat r_1$ without an intercept. This gives the same slope \emph{and the same residuals} as the full model. The one-sided regression in the original note gives the same slope, but generally not the same regression residuals.}\corr{fwl-residual}
+
+\subsection{General case}
+For $y=\beta_0+\beta_1x_1+\cdots+\beta_kx_k+u$, regress $x_1$ on $(1,x_2,\ldots,x_k)$:
+\[x_{1i}=\hat\delta_0+\hat\delta_2x_{2i}+\cdots+\hat\delta_kx_{ki}+\hat r_{1i}.\]
+Regress $y_i$ on $\hat r_{1i}$ and a constant, or regress the correspondingly residualised $y_i$ on $\hat r_{1i}$ without a constant. Formula \eqref{eq:fwl-one-sided} still holds when the residual variation is positive. More details and the repeated derivation are retained in \hyperref[sec:fwl-week3]{Week 3} and \hyperref[sec:fwl-week4]{Week 4}.
+
+\section{Simple versus Multiple Regression Slopes}
+\sourcepage{2}{6}{2/6}
+\label{sec:short-long-week2}
+If a control is added, must it be uncorrelated with the original regressor? \red{不用！} Correlated controls are precisely why simple and multiple slopes often differ. A control must, however, be appropriate to the causal or predictive question; adding it does not automatically remove bias.
+
+Consider the population equations
+\begin{align*}
+y&=\beta_0+\beta_1x_1+\beta_2x_2+u,\\
+x_2&=\delta_0+\delta_1x_1+\varepsilon.
+\end{align*}
+The second equation is a population linear projection, with $\E[\varepsilon]=\E[x_1\varepsilon]=0$. If $\E[u\mid x_1,x_2]=0$, substitution gives
+\begin{align*}
+y&=\beta_0+\beta_1x_1+\beta_2(\delta_0+\delta_1x_1+\varepsilon)+u\\
+ &=\underbrace{(\beta_0+\beta_2\delta_0)}_{\tilde\beta_0}
+  +\underbrace{(\beta_1+\beta_2\delta_1)}_{\tilde\beta_1}x_1
+  +\underbrace{(u+\beta_2\varepsilon)}_{v}.
+\end{align*}
+Hence the short population projection slope is
+\begin{equation}\label{eq:population-ovb}
+\hm{\tilde\beta_1=\beta_1+\beta_2\delta_1}.
+\end{equation}
+This is a relation between \emph{population projection coefficients}, not an equality between an estimator and a fixed parameter.\corr{ovb-levels}
+
+\paragraph{When do the slopes coincide?}
+For the two-regressor case, $\tilde\beta_1=\beta_1$ exactly when $\beta_2\delta_1=0$:
+\begin{enumerate}
+\item $\beta_2=0$: the partial effect of $x_2$ on $y$ is zero; the population slopes coincide even if $x_1$ and $x_2$ are correlated.
+\item $\delta_1=0$: $x_1$ and $x_2$ are uncorrelated in the population.
+\end{enumerate}
+\added{For realised OLS coefficients, the exact sample identity is
+\[\hat{\tilde\beta}_1=\hat\beta_1+\hat\beta_2\hat\delta_1.\]
+Sample slopes therefore coincide if $\hat\beta_2=0$ or the \emph{sample} auxiliary slope $\hat\delta_1=0$. A zero population coefficient does not force its sample estimate to be exactly zero.}
+
+\begin{example}[GPA: controls change the interpretation]\label{ex:gpa-short-long}
+Compare the following rounded fitted equations:
+\begin{align*}
+\widehat{\colGPA}&=1.29+0.453\hsGPA+0.0094\ACT,\\
+\widehat{\colGPA}&\simeq2.40+0.0271\ACT
+                       &&\text{(ACT only)},\\
+\widehat{\hsGPA}&\simeq2.46+0.039\ACT,\\
+\widehat{\colGPA}&\simeq1.41+0.482\hsGPA
+                       &&\text{(hsGPA only)}.
+\end{align*}
+For ACT, the population/sample substitution intuition is visible in the rounded arithmetic:
+\[1.29+0.453(2.46)=2.40438,\qquad
+0.0094+0.453(0.039)=0.027067\simeq0.0271.\]
+The hsGPA-only slope is fairly close to its multiple-regression slope, in part because the partial ACT coefficient is small. \blue{小的遗漏系数只有与辅助回归系数的大小一起看，才说明偏差是否小。} All displayed regressions are the source's rounded examples, not newly estimated empirical results.
+\end{example}
+
+\section{Units and Functional Form}
+\sourcepage{2}{7}{2/7}
+\label{sec:units}
+\subsection{Changing the unit of the dependent variable}
+Start from $y=\beta_0+\beta_1x+u$. For $y'=cy$ with $c\ne0$,
+\[y'=c\beta_0+c\beta_1x+cu.\]
+Therefore
+\[\hy{$\beta'_0=c\beta_0$},\qquad
+\hy{$\beta'_1=c\beta_1$},\qquad u'=cu,\qquad\Delta y'=c\Delta y.\]
+For example, converting dollars into thousands of dollars uses $c=1/1000$.
+The sample OLS derivation is
+\begin{align*}
+\hat\beta'_1
+ &=\frac{\Cov_n(x,y')}{\Var_n(x)}
+ =\frac{\Cov_n(x,cy)}{\Var_n(x)}
+ =c\hat\beta_1,\\
+\hat\beta'_0
+ &=\bar y'-\hat\beta'_1\bar x
+ =c\bar y-c\hat\beta_1\bar x=c\hat\beta_0.
+\end{align*}
+Under ZCM, the intercept interpretation at $x=0$ becomes
+\[\E[y'\mid x=0]=c\beta_0=\beta'_0.\]
+\red{这里必须写条件均值；通常不能写成 $\beta_0=\E[y]$。} In general $\E[y]=\beta_0+\beta_1\E[x]$ when $\E[u]=0$.\corr{unit-intercept}
+
+\subsection{Changing the unit of the regressor}
+If $x'=cx$ with $c\ne0$, then
+\[y=\beta_0+\frac{\beta_1}{c}x'+u,\qquad
+\hy{$\beta'_0=\beta_0$},\quad\hy{$\beta'_1=\beta_1/c$}.\]
+At $x'=0$ we also have $x=0$, so the intercept is unchanged. For the fitted coefficients,
+\begin{align*}
+\hat\beta'_1
+ &=\frac{\Cov_n(x',y)}{\Var_n(x')}
+ =\frac{c\Cov_n(x,y)}{c^2\Var_n(x)}
+ =\frac{\hat\beta_1}{c},\\
+\hat\beta'_0&=\bar y-\frac{\hat\beta_1}{c}(c\bar x)=\hat\beta_0.
+\end{align*}
+The fitted mean identity is correspondingly $\bar y=\hat\beta'_0+\hat\beta'_1\bar x'$.
+
+\section{Level and Log Specifications}
+\sourcepage{2}{8}{last page}
+\label{sec:logs}
+\blue{Level 对应单位变化；log 对应相对或百分比变化。} All logs below are natural logs; logarithms require positive arguments. Throughout the comparison, the error and other regressors are held fixed. Write $\%\Delta x=100\Delta x/x_0$ and $\%\Delta y=100\Delta y/y_0$ for ordinary finite percentage changes.
+
+\subsection{Level--level}
+\[y=\beta_0+\beta_1x+u,\qquad
+\hm{\Delta y=\beta_1\Delta x}.\]
+One unit more in $x$ corresponds to $\beta_1$ units more in $y$.
+
+\subsection{Level--log}
+\[y=\beta_0+\beta_1\ln x+u,\qquad
+\frac{dy}{d\ln x}=\beta_1,\qquad
+dy=\beta_1\frac{dx}{x}.\]
+For a small change,
+\[\hm{\Delta y\approx\frac{\beta_1}{100}\,\%\Delta x}.\]
+A one-percent increase in $x$ is associated with approximately $\beta_1/100$ units more in $y$.
+\added{For a finite change, the exact model relation is $\Delta y=\beta_1\ln(x_1/x_0)$. For a 1\% increase it is $\beta_1\ln(1.01)$, not exactly $\beta_1/100$.}\corr{logs}
+
+\subsection{Log--level}
+\[\ln y=\beta_0+\beta_1x+u,\qquad
+\frac{d\ln y}{dx}=\beta_1=\frac{1}{y}\frac{dy}{dx}.\]
+Thus $\beta_1$ is a semi-elasticity, stored as a decimal, and
+\[\hm{\%\Delta y\approx100\beta_1\Delta x}.\]
+One unit more in $x$ corresponds to approximately $100\beta_1$ percent more in $y$.
+\added{For finite $\Delta x$, the exact constant-error relation is
+\[\%\Delta y=100\bigl(e^{\beta_1\Delta x}-1\bigr).\]
+Exponentiating $\E[\ln y\mid x]$ is not generally the same as $\E[y\mid x]$; a statement about the mean in levels requires a retransformation adjustment.}\corr{logs}
+
+\subsection{Log--log}
+\[\ln y=\beta_0+\beta_1\ln x+u,\qquad
+\hm{\beta_1=\frac{d\ln y}{d\ln x}
+=\frac{dy/y}{dx/x}}.\]
+$\beta_1$ is the elasticity. For small changes,
+\[\%\Delta y\approx\beta_1\,\%\Delta x.\]
+One percent more in $x$ corresponds to approximately $\beta_1$ percent more in $y$.
+\added{For an ordinary finite percentage change $p=\%\Delta x$,
+\[\%\Delta y=100\left[\left(1+\frac p{100}\right)^{\beta_1}-1\right].\]
+The differential elasticity is exact; replacing differentials with arbitrary finite changes is an approximation.}\corr{logs}
+
+\subsection*{Chapter recap / 本章小结}
+\addcontentsline{toc}{subsection}{Chapter recap / 本章小结}
+\begin{itemize}
+\item A fitted slope is a predicted association; a causal interpretation needs an appropriate model and research design.
+\item Multiple OLS holds included controls fixed; FWL isolates the same slope through residualisation.
+\item Units rescale coefficients. Log specifications require clear separation of exact relations and percentage approximations.
+\end{itemize}

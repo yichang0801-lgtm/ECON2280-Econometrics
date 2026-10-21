@@ -1,0 +1,184 @@
+{
+  "compiled_sha256": "922a034697dcc63f2a5daa5227fb743110f584d204efad4f1b32c2957e508eec",
+  "reference_sha256": "d394f436ee75a4860dc57a8080efe781f1397713feda2574fa62d59b55d968ba",
+  "pages": [
+    {
+      "page": 1,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 2,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 3,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 4,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 5,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 6,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 7,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 8,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 9,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 10,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 11,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 12,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 13,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 14,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 15,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 16,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 17,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 18,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 19,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 20,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 21,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 22,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 23,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 24,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 25,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 26,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 27,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 28,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 29,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 30,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 31,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 32,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 33,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 34,
+      "text_identical": true,
+      "render_pixels_identical": true
+    },
+    {
+      "page": 35,
+      "text_identical": true,
+      "render_pixels_identical": true
+    }
+  ],
+  "all_pages_identical": true,
+  "bookmarks_identical": true,
+  "distribution_policy": "原 PDF 与整合源码重新编译的正文及逐页渲染一致；保留原 GitHub PDF 的稳定字节版本。"
+}

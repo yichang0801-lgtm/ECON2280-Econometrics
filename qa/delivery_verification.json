@@ -1,0 +1,35 @@
+{
+  "pdf": "Econometrics中文版笔记.pdf",
+  "pdf_sha256": "d394f436ee75a4860dc57a8080efe781f1397713feda2574fa62d59b55d968ba",
+  "pages": 35,
+  "searchable_characters": 32374,
+  "source_pages_mapped": 23,
+  "correction_records": 30,
+  "bookmarks": 65,
+  "internal_links": 173,
+  "external_links": 3,
+  "source_hashes_verified": true,
+  "source_checks": [
+    {
+      "week": 2,
+      "present": true,
+      "sha256_verified": true
+    },
+    {
+      "week": 3,
+      "present": true,
+      "sha256_verified": true
+    },
+    {
+      "week": 4,
+      "present": true,
+      "sha256_verified": true
+    }
+  ],
+  "template_hash_verified": true,
+  "optional_originals_required_for_build": false,
+  "missing_reference_markers": false,
+  "substantive_unresolved_handwriting": [],
+  "possible_page_edge_overflow": [],
+  "visual_review": "passed for this exact PDF"
+}

@@ -7,7 +7,10 @@
 \geometry{a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm}
 \usepackage{amsmath,amssymb,amsthm}
 
-\usepackage[UTF8,scheme=plain,fontset=windows,heading=true]{ctex}
+% Keep the original Windows fonts; use TeX's bundled Chinese fonts elsewhere.
+\IfFileExists{C:/Windows/Fonts/simsun.ttc}
+  {\usepackage[UTF8,scheme=plain,fontset=windows,heading=true]{ctex}}
+  {\usepackage[UTF8,scheme=plain,fontset=fandol,heading=true]{ctex}}
 \usepackage{indentfirst,graphicx,float}
 \usepackage[table]{xcolor}
 \usepackage{booktabs,longtable,array}

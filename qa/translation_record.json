@@ -1,0 +1,11 @@
+{
+  "language": "zh-CN",
+  "translated_lines": {
+    "week2": 128,
+    "week3": 129,
+    "week4": 149
+  },
+  "source_snapshot": "translation/original_tex",
+  "scope": "正文、标题、图注、图内标注、附录；保留专业缩写与公式变量",
+  "original_project_unchanged": true
+}
