@@ -1,2 +1,2 @@
 # Estella-Xie
-HKU Business School- BECon & Fin  year2
+HKU Business School- BEcon & Fin  year2
