@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "method": "从 git archive 导出的已提交文件进行独立完整编译，不携带任何未跟踪或忽略的文件。",
+  "environment": "Windows / XeLaTeX / Python 3.11",
+  "pages": 35,
+  "internal_links": 173,
+  "bookmarks": 65,
+  "math_checks": 17,
+  "display_math_blocks": 137,
+  "original_scan_files_present": false,
+  "original_bmo_file_present": false,
+  "missing_optional_originals_reported_accurately": true,
+  "all_pages_match_delivered_pdf": true,
+  "cross_platform_compilation_tested": false
+}
