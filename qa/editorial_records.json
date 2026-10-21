@@ -1,0 +1,580 @@
+{
+  "pages": [
+    {
+      "week": 2,
+      "pdf_page": 1,
+      "handwritten": "2/1",
+      "coverage": "简单模型；其他条件不变；误差归一化；零条件均值；工资例题",
+      "anchor": "src:w2p1",
+      "reviewed": true
+    },
+    {
+      "week": 2,
+      "pdf_page": 2,
+      "handwritten": "2/2",
+      "coverage": "总体回归函数推导；OLS 系数；相关与因果；截距；薪酬示意图",
+      "anchor": "src:w2p2",
+      "reviewed": true
+    },
+    {
+      "week": 2,
+      "pdf_page": 3,
+      "handwritten": "2/3",
+      "coverage": "工资单位练习；安森的假设情景；得票与竞选支出练习",
+      "anchor": "src:w2p3",
+      "reviewed": true
+    },
+    {
+      "week": 2,
+      "pdf_page": 4,
+      "handwritten": "2/4",
+      "coverage": "多元偏效应；相关的控制变量；平均绩点解释；安森与贝蒂",
+      "anchor": "src:w2p4",
+      "reviewed": true
+    },
+    {
+      "week": 2,
+      "pdf_page": 5,
+      "handwritten": "2/5",
+      "coverage": "控制变量；能力；保持不变；单侧及一般 FWL 定理",
+      "anchor": "src:w2p5",
+      "reviewed": true
+    },
+    {
+      "week": 2,
+      "pdf_page": 6,
+      "handwritten": "2/6",
+      "coverage": "短回归与长回归；系数相同的条件；舍入后的绩点方程",
+      "anchor": "src:w2p6",
+      "reviewed": true
+    },
+    {
+      "week": 2,
+      "pdf_page": 7,
+      "handwritten": "2/7",
+      "coverage": "因变量与自变量单位变换；截距解释；样本协方差推导",
+      "anchor": "src:w2p7",
+      "reviewed": true
+    },
+    {
+      "week": 2,
+      "pdf_page": 8,
+      "handwritten": "末页，按 PDF 定位",
+      "coverage": "水平值与对数的四类模型；百分比解释",
+      "anchor": "src:w2p8",
+      "reviewed": true
+    },
+    {
+      "week": 3,
+      "pdf_page": 1,
+      "handwritten": "3/1",
+      "coverage": "误差与残差；简单 OLS 的三个样本性质；总体矩条件",
+      "anchor": "src:w3p1",
+      "reviewed": true
+    },
+    {
+      "week": 3,
+      "pdf_page": 2,
+      "handwritten": "3/2",
+      "coverage": "三类平方和；交叉项证明；完全拟合；判定系数的相关解释",
+      "anchor": "src:w3p2",
+      "reviewed": true
+    },
+    {
+      "week": 3,
+      "pdf_page": 3,
+      "handwritten": "3/3",
+      "coverage": "判定系数比较图；再次保留多元 OLS 性质及证明",
+      "anchor": "src:w3p3",
+      "reviewed": true
+    },
+    {
+      "week": 3,
+      "pdf_page": 4,
+      "handwritten": "3/4",
+      "coverage": "增加回归变量；调整判定系数；绩点数值核算；三点提醒",
+      "anchor": "src:w3p4",
+      "reviewed": true
+    },
+    {
+      "week": 3,
+      "pdf_page": 5,
+      "handwritten": "3/5",
+      "coverage": "过原点估计；去均值；均值点示意图；页底重复的工资例式",
+      "anchor": "src:w3p5",
+      "reviewed": true
+    },
+    {
+      "week": 3,
+      "pdf_page": 6,
+      "handwritten": "补充推导页",
+      "coverage": "再次保留有无截距的公式；去均值；仅含常数项的回归；FWL",
+      "anchor": "src:w3p6",
+      "reviewed": true
+    },
+    {
+      "week": 3,
+      "pdf_page": 7,
+      "handwritten": "3/6",
+      "coverage": "再次保留过原点回归一阶条件；样本性质；协方差限制；负判定系数",
+      "anchor": "src:w3p7",
+      "reviewed": true
+    },
+    {
+      "week": 4,
+      "pdf_page": 1,
+      "handwritten": "4/1",
+      "coverage": "学习目标；估计回顾；参数与估计量；无偏性；简单回归假设概览",
+      "anchor": "src:w4p1",
+      "reviewed": true
+    },
+    {
+      "week": 4,
+      "pdf_page": 2,
+      "handwritten": "4/2",
+      "coverage": "简单回归假设详解；总体误差示意图；斜率无偏性的证明",
+      "anchor": "src:w4p2",
+      "reviewed": true
+    },
+    {
+      "week": 4,
+      "pdf_page": 3,
+      "handwritten": "4/3",
+      "coverage": "考试提示中的截距证明；违背假设的后果及结论边界",
+      "anchor": "src:w4p3",
+      "reviewed": true
+    },
+    {
+      "week": 4,
+      "pdf_page": 4,
+      "handwritten": "4/5",
+      "coverage": "多元回归前三项假设；常数自变量示意图；全部完全共线性例子",
+      "anchor": "src:w4p4",
+      "reviewed": true
+    },
+    {
+      "week": 4,
+      "pdf_page": 5,
+      "handwritten": "4/6",
+      "coverage": "多元回归第四项假设；无偏性定理；辅助残差性质；FWL 期望证明",
+      "anchor": "src:w4p5",
+      "reviewed": true
+    },
+    {
+      "week": 4,
+      "pdf_page": 6,
+      "handwritten": "4/7",
+      "coverage": "控制变量与无偏性回顾；假设对照表；某次对数工资估计",
+      "anchor": "src:w4p6",
+      "reviewed": true
+    },
+    {
+      "week": 4,
+      "pdf_page": 7,
+      "handwritten": "4/8",
+      "coverage": "无关控制变量；遗漏相关变量；短长回归的精确样本恒等式",
+      "anchor": "src:w4p7",
+      "reviewed": true
+    },
+    {
+      "week": 4,
+      "pdf_page": 8,
+      "handwritten": "4/9",
+      "coverage": "迭代期望偏误证明；附加条件；偏误方向与符号表",
+      "anchor": "src:w4p8",
+      "reviewed": true
+    }
+  ],
+  "corrections": [
+    {
+      "id": "notation",
+      "sources": [
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "title": "总体、估计量与拟合值记号",
+      "correction_tex": "总体参数写作 $\\beta_j$，样本估计写作 $\\hat\\beta_j$；总体误差 $u_i$ 与残差 $\\hat u_i$ 分开。拟合值变化使用 $\\Delta\\hat y$，不将 $\\hat\\beta_j$ 直接写成总体参数。",
+      "reference": "H1"
+    },
+    {
+      "id": "mean-normalisation",
+      "sources": [
+        [
+          2,
+          1
+        ]
+      ],
+      "title": "误差均值的归一化",
+      "correction_tex": "令 $\\varepsilon=u-\\alpha$ 后，$\\E[\\varepsilon]=0$，而不是 $\\varepsilon$ 处处等于零。截距变为 $\\beta_0+\\alpha$。该归一化本身不保证零条件均值。",
+      "reference": "H1"
+    },
+    {
+      "id": "slope-correlation",
+      "sources": [
+        [
+          2,
+          2
+        ]
+      ],
+      "title": "斜率与相关系数的比例",
+      "correction_tex": "样本简单 OLS 斜率为 $r_{xy}s_y/s_x$，不是 $r_{xy}s_x/s_y$；总体投影系数和样本系数不能混用。",
+      "reference": "H2"
+    },
+    {
+      "id": "causality",
+      "sources": [
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "title": "相关与因果的边界",
+      "correction_tex": "保留“相关联”的措辞；控制变量、ZCM 或好的拟合度本身不能替代结构模型与可辩护的因果识别。截距在 $x=0$ 不可行时只是外推。",
+      "reference": "H1"
+    },
+    {
+      "id": "wage-counterfactual",
+      "sources": [
+        [
+          2,
+          3
+        ]
+      ],
+      "title": "工资题中的单位与个体反事实",
+      "correction_tex": "按原稿“千美元”复算：$5.58$、$-5.574$、$7.74$、$2.166$ 均使用同一单位。固定该人残差得到的是模型情景，并非保证的实际工资。未把看似异常的原题单位擅自改成美元。",
+      "reference": "计算"
+    },
+    {
+      "id": "election",
+      "sources": [
+        [
+          2,
+          3
+        ]
+      ],
+      "title": "选举题的比例与金额",
+      "correction_tex": "40\\% 应输入 40，预测为 45.37\\%；50\\% 的预测阈值对应 支出占比 $>49.978448\\ldots$。补齐在 B 支出 20 亿美元时 A 的支出阈值，区别预测过半与实际获胜。",
+      "reference": "计算"
+    },
+    {
+      "id": "fwl-residual",
+      "sources": [
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "title": "FWL 的单侧与双侧残差化",
+      "correction_tex": "只残差化自变量后回归原始 $y$，系数相同，但残差一般不等于原多元模型残差。对 $y$ 与该自变量同时排除其他回归量，才能同时得到相同系数与残差。",
+      "reference": "H2"
+    },
+    {
+      "id": "ovb-levels",
+      "sources": [
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "title": "遗漏变量公式的三个层次",
+      "correction_tex": "保留样本恒等式 $\\hat{\\tilde\\beta}_1=\\hat\\beta_1+\\hat\\beta_2\\hat\\delta_1$。给定整组设计时，偏差为 $\\beta_2\\hat\\delta_1$；无条件有限样本偏差为 $\\beta_2\\E[\\hat\\delta_1]$。写成 $\\beta_2\\delta_1$ 还须有辅助斜率无偏等附加条件；总体投影差另行说明。",
+      "reference": "H3"
+    },
+    {
+      "id": "unit-intercept",
+      "sources": [
+        [
+          2,
+          7
+        ]
+      ],
+      "title": "换单位时的截距与条件均值",
+      "correction_tex": "总体截距的含义是 $\\E[y\\mid x=0]$，不是一般的 $\\E[y]$；$y$ 乘以 $c$ 时截距也乘以 $c$。$x$ 乘以非零 $c$ 时斜率除以 $c$，截距不变。",
+      "reference": "计算"
+    },
+    {
+      "id": "logs",
+      "sources": [
+        [
+          2,
+          8
+        ]
+      ],
+      "title": "有限变化与对数近似",
+      "correction_tex": "将有限变化的近似与精确关系分开。水平值—对数模型为 $\\beta_1\\ln(x_1/x_0)$；对数—水平值模型的精确百分比为 $100(e^{\\beta_1\\Delta x}-1)$；对数—对数模型使用比例的幂。对数模型的系数仍保留原稿的局部百分比解释。",
+      "reference": "计算"
+    },
+    {
+      "id": "sample-population",
+      "sources": [
+        [
+          3,
+          1
+        ]
+      ],
+      "title": "样本恒等式不是总体外生性的检验",
+      "correction_tex": "残差和为零、与包含的回归量正交来自样本 OLS 一阶条件。不能从这些条件推出真实误差的 ZCM。总体均值关系用无帽参数，样本均值关系用样本系数。",
+      "reference": "H2"
+    },
+    {
+      "id": "r2-degenerate",
+      "sources": [
+        [
+          3,
+          2
+        ]
+      ],
+      "title": "判定系数 的退化情形",
+      "correction_tex": "补充 TSS 必须大于零。拟合值恒定时，普通 $R^2$ 可以为零，但相关系数因分母为零而未定义；此时不能直接用相关系数平方计算。",
+      "reference": "H2"
+    },
+    {
+      "id": "r2-rss",
+      "sources": [
+        [
+          3,
+          3
+        ]
+      ],
+      "title": "高拟合度与 RSS 的比较",
+      "correction_tex": "高 $R^2$ 表示较小的 RSS/TSS；不能跨不同样本或单位仅凭较高 $R^2$ 就认定绝对 RSS 更小。图中 0.94 和 0.64 均由新绘制的示意点实际计算。",
+      "reference": "H2"
+    },
+    {
+      "id": "r2-monotonic",
+      "sources": [
+        [
+          3,
+          4
+        ]
+      ],
+      "title": "增加回归量时 判定系数 不减",
+      "correction_tex": "原稿的“增加”改为“不下降，可以保持不变”，并注明必须是相同观测、相同因变量的嵌套 OLS 比较。不同缺失值样本不在该结论内。",
+      "reference": "H2"
+    },
+    {
+      "id": "adjusted-meaning",
+      "sources": [
+        [
+          3,
+          4
+        ]
+      ],
+      "title": "调整判定系数 的提高条件",
+      "correction_tex": "“变量有意义才提高”改写为残差均方必须下降；增加 $q$ 个回归量时，对应描述性的 偏 F 统计量 大于 1。这个阈值不是常规显著性检验，也不证明因果。",
+      "reference": "计算"
+    },
+    {
+      "id": "demeaning",
+      "sources": [
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "title": "去均值与过原点回归",
+      "correction_tex": "是“去均值后无截距”的斜率等于“原始数据带截距”的斜率；不是任意无截距回归都等于带截距回归。原稿的两次推导均保留。",
+      "reference": "H2"
+    },
+    {
+      "id": "rto-covariance",
+      "sources": [
+        [
+          3,
+          7
+        ]
+      ],
+      "title": "无截距时的正交与不相关",
+      "correction_tex": "$\\sum_i x_i\\check u_i=0$ 仍成立，但 $\\Cov_n(x,\\check u)=-\\bar x\\bar{\\check u}$ 一般不为零。原稿将两者等同的说法已改正。",
+      "reference": "H2"
+    },
+    {
+      "id": "rto-cross-term",
+      "sources": [
+        [
+          3,
+          7
+        ]
+      ],
+      "title": "平方和分解的交叉项",
+      "correction_tex": "交叉项应为 $2\\sum_i\\check u_i(\\hat y_i-\\bar y)$，其中是拟合值 $\\hat y_i$。无截距时它不一定消失，因此不能一般地写 TSS=ESS+RSS。",
+      "reference": "H2"
+    },
+    {
+      "id": "rto-r2",
+      "sources": [
+        [
+          3,
+          7
+        ]
+      ],
+      "title": "有截距与无截距 判定系数 的基准",
+      "correction_tex": "区分以样本均值为基准的 中心化判定系数 与以零为基准的 非中心化判定系数。前者在过原点回归中可以为负；两种统计量不能当作同一尺度直接比较。",
+      "reference": "M"
+    },
+    {
+      "id": "estimator-estimate",
+      "sources": [
+        [
+          4,
+          1
+        ]
+      ],
+      "title": "估计量与某次估计值",
+      "correction_tex": "无偏性不要求某一次估计等于真值，也不声称每一次估计必定不等于真值。它是对重复抽样期望的限制，并需要相关期望存在。",
+      "reference": "H3"
+    },
+    {
+      "id": "conditioning",
+      "sources": [
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "title": "无偏性证明的条件期望",
+      "correction_tex": "先给定整组样本设计，再将样本权重与分母作为常量提出条件期望。不能仅使用单个 $x_i$ 的条件，或在无条件期望中把随机分母当常数。注明样本满秩和期望存在。",
+      "reference": "H3"
+    },
+    {
+      "id": "intercept-sign",
+      "sources": [
+        [
+          4,
+          3
+        ]
+      ],
+      "title": "截距证明的正负号",
+      "correction_tex": "从总体模型取平均得到 $\\bar y=\\beta_0+\\beta_1\\bar x+\\bar u$；因此截距展开式中的 $\\bar u$ 应为加号。原稿中间一行的减号与其余推导不一致。",
+      "reference": "计算"
+    },
+    {
+      "id": "violations",
+      "sources": [
+        [
+          4,
+          3
+        ]
+      ],
+      "title": "违背抽样假设的后果",
+      "correction_tex": "保留时间序列相关、非代表性样本和溢出效应的例子；将它们与“必然产生 OLS 偏差”区分。需另查条件均值，不能仅凭违反独立同分布假设 就推出所有系数有偏。",
+      "reference": "H3"
+    },
+    {
+      "id": "zcm-covariance",
+      "sources": [
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "title": "ZCM 强于零协方差",
+      "correction_tex": "$\\E[u\\mid x]=0$ 推出零均值、零协方差；反方向不成立。总体误差不相关不足以保证有限样本无偏；与样本残差正交也不构成外生性的证据。",
+      "reference": "H1"
+    },
+    {
+      "id": "collinearity",
+      "sources": [
+        [
+          4,
+          4
+        ]
+      ],
+      "title": "完全共线性与平方项",
+      "correction_tex": "保留常数、倍数、仿射关系、总支出等例子。对数变量及其平方一般不自动完全共线，但特殊样本仍可能不满秩；“样本满秩所以总体一定如何”的措辞改为直接检查样本设计。",
+      "reference": "H3"
+    },
+    {
+      "id": "unbiased-log",
+      "sources": [
+        [
+          4,
+          6
+        ]
+      ],
+      "title": "9.2\\% 与无偏估计程序",
+      "correction_tex": "改正 $\\log(\\widehat{wage})$ 与 $\\widehat{\\log(wage)}$ 的混用。0.092 是一个实现值；OLS 系数估计量的无偏不保证指数变换无偏。9.2\\% 是近似，精确的固定误差变换约为 9.64\\%。",
+      "reference": "H3"
+    },
+    {
+      "id": "irrelevant-exogeneity",
+      "sources": [
+        [
+          4,
+          7
+        ]
+      ],
+      "title": "加入无关变量需要扩充后的外生性",
+      "correction_tex": "不能从 $\\E[u\\mid x_1,x_2]=0$ 自动推出加入 $x_3$ 后条件均值仍为零。仅在扩充后满秩且继续满足 ZCM 等条件时，原有系数及零系数的 OLS 估计量才保持无偏。",
+      "reference": "H3"
+    },
+    {
+      "id": "irrelevant-variance",
+      "sources": [
+        [
+          4,
+          7
+        ]
+      ],
+      "title": "无关控制变量与精度",
+      "correction_tex": "将“估计方差必然上升”限定为同方差固定设计下，加入无关控制使相关真实条件方差弱增；不保证严格增加，也不保证每次实现的估计标准误增加。",
+      "reference": "H3"
+    },
+    {
+      "id": "omitting-relevant",
+      "sources": [
+        [
+          4,
+          7
+        ]
+      ],
+      "title": "遗漏相关变量的条件",
+      "correction_tex": "小节标题按内容改为 遗漏相关变量；遗漏变量系数非零并不足以保证目标斜率改变，还要看它与保留回归量的关系。误差、短回归残差、长回归残差分开。",
+      "reference": "H3"
+    },
+    {
+      "id": "toward-zero",
+      "sources": [
+        [
+          4,
+          8
+        ]
+      ],
+      "title": "向零偏不能只看上偏或下偏",
+      "correction_tex": "保留正系数下偏、负系数上偏的方向解释，但增加“不越过零”的限制。发生符号反转时不能仅按方向就称为通常意义的向零偏。",
+      "reference": "计算"
+    }
+  ],
+  "substantive_unresolved_handwriting": [],
+  "page_number_note": "第 4 周跳号按用户说明属于练习安排；第 2 周末页按 PDF 页码定位，不猜写手写末位数字。"
+}

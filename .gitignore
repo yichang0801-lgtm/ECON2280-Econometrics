@@ -1,0 +1,17 @@
+/build/
+/output/
+/qa/rendered/
+/qa/source-crops/
+/qa/pdf_text.txt
+/qa/render_manifest.json
+/qa/environment.json
+__pycache__/
+*.pyc
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+# Keep the original scans and unrelated BMO source locally.
+/sources/*.pdf
+/template/bmo_original_main.tex

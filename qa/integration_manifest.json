@@ -1,0 +1,18 @@
+{
+  "upstream": "https://github.com/yichang0801-lgtm/Estella-Xie",
+  "upstream_commit": "1faa5eb45181f80d777b1273cdd16b40f35a2f26",
+  "date": "2026-10-21",
+  "canonical_language": "zh-CN",
+  "canonical_pdf": "Econometrics中文版笔记.pdf",
+  "comparison": "GitHub 主文件、最终 PDF、全部 8 组矢量图与预览均与本地已验收中文版逐字节一致。",
+  "restored": [
+    "chapters",
+    "scripts",
+    "translation",
+    "source map",
+    "source checksums",
+    "build instructions"
+  ],
+  "original_projects_preserved": true,
+  "local_original_scans_published": false
+}

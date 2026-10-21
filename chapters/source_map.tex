@@ -1,0 +1,35 @@
+\chapter{原稿对应表}
+\label{app:sources}
+每行对应一页原始 PDF；点击正文页码可跳到该页内容开始的位置。跨页内容仍按原稿顺序衔接。所有 23 页均逐页查看，原稿中的重复讲解、例式和页底可见片段均保留。
+第 4 周的手写页码跳号按用户说明属于练习安排，不标记为漏扫；不补写未提供的练习。第 2 周末页的手写页码以 PDF 第 8 页定位，避免猜写最后一位。
+\small\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{P{1.05cm}P{.8cm}P{2.25cm}P{9.7cm}P{.9cm}}
+\toprule 周次 & PDF & 手写页码 & 已整理内容 & 页码\\\midrule\endfirsthead
+\toprule 周次 & PDF & 手写页码 & 已整理内容 & 页码\\\midrule\endhead
+\bottomrule\endfoot
+2 & 1 & 2/1 & 简单模型；其他条件不变；误差归一化；零条件均值；工资例题 & \hyperref[src:w2p1]{\pageref*{src:w2p1}}\\
+2 & 2 & 2/2 & 总体回归函数推导；OLS 系数；相关与因果；截距；薪酬示意图 & \hyperref[src:w2p2]{\pageref*{src:w2p2}}\\
+2 & 3 & 2/3 & 工资单位练习；安森的假设情景；得票与竞选支出练习 & \hyperref[src:w2p3]{\pageref*{src:w2p3}}\\
+2 & 4 & 2/4 & 多元偏效应；相关的控制变量；平均绩点解释；安森与贝蒂 & \hyperref[src:w2p4]{\pageref*{src:w2p4}}\\
+2 & 5 & 2/5 & 控制变量；能力；保持不变；单侧及一般 FWL 定理 & \hyperref[src:w2p5]{\pageref*{src:w2p5}}\\
+2 & 6 & 2/6 & 短回归与长回归；系数相同的条件；舍入后的绩点方程 & \hyperref[src:w2p6]{\pageref*{src:w2p6}}\\
+2 & 7 & 2/7 & 因变量与自变量单位变换；截距解释；样本协方差推导 & \hyperref[src:w2p7]{\pageref*{src:w2p7}}\\
+2 & 8 & 末页，按 PDF 定位 & 水平值与对数的四类模型；百分比解释 & \hyperref[src:w2p8]{\pageref*{src:w2p8}}\\
+3 & 1 & 3/1 & 误差与残差；简单 OLS 的三个样本性质；总体矩条件 & \hyperref[src:w3p1]{\pageref*{src:w3p1}}\\
+3 & 2 & 3/2 & 三类平方和；交叉项证明；完全拟合；判定系数的相关解释 & \hyperref[src:w3p2]{\pageref*{src:w3p2}}\\
+3 & 3 & 3/3 & 判定系数比较图；再次保留多元 OLS 性质及证明 & \hyperref[src:w3p3]{\pageref*{src:w3p3}}\\
+3 & 4 & 3/4 & 增加回归变量；调整判定系数；绩点数值核算；三点提醒 & \hyperref[src:w3p4]{\pageref*{src:w3p4}}\\
+3 & 5 & 3/5 & 过原点估计；去均值；均值点示意图；页底重复的工资例式 & \hyperref[src:w3p5]{\pageref*{src:w3p5}}\\
+3 & 6 & 补充推导页 & 再次保留有无截距的公式；去均值；仅含常数项的回归；FWL & \hyperref[src:w3p6]{\pageref*{src:w3p6}}\\
+3 & 7 & 3/6 & 再次保留过原点回归一阶条件；样本性质；协方差限制；负判定系数 & \hyperref[src:w3p7]{\pageref*{src:w3p7}}\\
+4 & 1 & 4/1 & 学习目标；估计回顾；参数与估计量；无偏性；简单回归假设概览 & \hyperref[src:w4p1]{\pageref*{src:w4p1}}\\
+4 & 2 & 4/2 & 简单回归假设详解；总体误差示意图；斜率无偏性的证明 & \hyperref[src:w4p2]{\pageref*{src:w4p2}}\\
+4 & 3 & 4/3 & 考试提示中的截距证明；违背假设的后果及结论边界 & \hyperref[src:w4p3]{\pageref*{src:w4p3}}\\
+4 & 4 & 4/5 & 多元回归前三项假设；常数自变量示意图；全部完全共线性例子 & \hyperref[src:w4p4]{\pageref*{src:w4p4}}\\
+4 & 5 & 4/6 & 多元回归第四项假设；无偏性定理；辅助残差性质；FWL 期望证明 & \hyperref[src:w4p5]{\pageref*{src:w4p5}}\\
+4 & 6 & 4/7 & 控制变量与无偏性回顾；假设对照表；某次对数工资估计 & \hyperref[src:w4p6]{\pageref*{src:w4p6}}\\
+4 & 7 & 4/8 & 无关控制变量；遗漏相关变量；短长回归的精确样本恒等式 & \hyperref[src:w4p7]{\pageref*{src:w4p7}}\\
+4 & 8 & 4/9 & 迭代期望偏误证明；附加条件；偏误方向与符号表 & \hyperref[src:w4p8]{\pageref*{src:w4p8}}\\
+\end{longtable}\normalsize
+\section*{复现与原件}
+原始 PDF 和 BMO 模板副本保持原样；文件路径、字节数及 SHA256 校验值见项目中的 sources/manifest.json。矢量图和对应预览由同一 Python 脚本生成，数值检查记录另保存在 qa 目录。

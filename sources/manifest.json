@@ -1,0 +1,29 @@
+{
+  "sources": [
+    {
+      "week": 2,
+      "copy": "sources/Week2 Interpretation of OLS Regression.pdf",
+      "sha256": "687b5f3a670ff06057eef173d2f184be0b16872d56444a3ea0fb104d1fad016b",
+      "bytes": 6199442,
+      "distribution": "optional-local-original"
+    },
+    {
+      "week": 3,
+      "copy": "sources/Week3 Goodness of Fit.pdf",
+      "sha256": "f9501f81204e78d8101c245655dda8ae7351cf2e0b3cbb46b48e009eaa8fc149",
+      "bytes": 5754844,
+      "distribution": "optional-local-original"
+    },
+    {
+      "week": 4,
+      "copy": "sources/Week4  Unbiasedness of OLS Estimation.pdf",
+      "sha256": "7b96d81c9e88f7c8d041a3decb57d497ded480dc1bd9a863edb5526112ce0fee",
+      "bytes": 9173443,
+      "distribution": "optional-local-original"
+    }
+  ],
+  "template": {
+    "sha256": "698de088783125c8e5e3a635a5b6cbb91914932ca1e107eab85e5e1c30967ec6",
+    "copy": "template/bmo_original_main.tex"
+  }
+}

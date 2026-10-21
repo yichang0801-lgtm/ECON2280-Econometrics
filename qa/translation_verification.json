@@ -1,0 +1,121 @@
+{
+  "pdf_sha256": "d394f436ee75a4860dc57a8080efe781f1397713feda2574fa62d59b55d968ba",
+  "status": "passed",
+  "chapters": {
+    "week2": {
+      "structure_preserved": {
+        "label": 23,
+        "begin": 31,
+        "end": 31,
+        "sourcepage": 8,
+        "corr": 12,
+        "includegraphics": 0
+      },
+      "display_math_blocks": 52,
+      "reviewed_text_only_changes": [
+        {
+          "block": 13,
+          "reason": "货币符号换为中文“美元”；数值及算式不变"
+        },
+        {
+          "block": 14,
+          "reason": "高亮框中的纯文字等式完整翻译"
+        }
+      ]
+    },
+    "week3": {
+      "structure_preserved": {
+        "label": 20,
+        "begin": 26,
+        "end": 26,
+        "sourcepage": 7,
+        "corr": 10,
+        "includegraphics": 0
+      },
+      "display_math_blocks": 39,
+      "reviewed_text_only_changes": []
+    },
+    "week4": {
+      "structure_preserved": {
+        "label": 21,
+        "begin": 30,
+        "end": 30,
+        "sourcepage": 8,
+        "corr": 14,
+        "includegraphics": 0
+      },
+      "display_math_blocks": 46,
+      "reviewed_text_only_changes": []
+    }
+  },
+  "total_display_math_blocks": 137,
+  "remaining_latin_vocabulary": {
+    "OLS": 57,
+    "Jintian": 1,
+    "JTST": 1,
+    "iii": 2,
+    "FWL": 15,
+    "RTO": 3,
+    "MLR": 13,
+    "BMO": 3,
+    "sources": 2,
+    "Python": 2,
+    "Matplotlib": 1,
+    "wage": 12,
+    "educ": 6,
+    "salary": 3,
+    "roe": 3,
+    "colGPA": 7,
+    "hsGPA": 6,
+    "ACT": 19,
+    "income": 5,
+    "exper": 2,
+    "tenure": 2,
+    "voteA": 4,
+    "shareA": 6,
+    "SLR": 15,
+    "ZCM": 12,
+    "PRF": 1,
+    "Covn": 14,
+    "Varn": 11,
+    "rxy": 2,
+    "sxsy": 1,
+    "kxk": 4,
+    "colGPAA": 1,
+    "colGPAB": 1,
+    "iyi": 1,
+    "ryi": 2,
+    "kxki": 4,
+    "TSS": 25,
+    "ESS": 14,
+    "RSS": 25,
+    "Corrn": 3,
+    "bjxji": 1,
+    "xji": 4,
+    "xiyi": 3,
+    "BiAi": 1,
+    "rxi": 1,
+    "rxiryi": 1,
+    "min": 1,
+    "Sxx": 16,
+    "Cov": 7,
+    "xki": 2,
+    "jxji": 1,
+    "rji": 6,
+    "Srjrj": 6,
+    "RSSj": 1,
+    "rjixji": 1,
+    "rjiyi": 1,
+    "rjiui": 1,
+    "jxj": 1,
+    "Var": 2,
+    "PDF": 43,
+    "SHA": 1,
+    "manifest": 1,
+    "json": 1,
+    "rxysy": 1,
+    "rxysx": 1,
+    "log": 2
+  },
+  "latin_policy": "仅保留专业缩写、数学记号、原变量名、作者署名、软件名称与文件路径；不存在英文叙述或英文标题"
+}

@@ -1,0 +1,381 @@
+\chapter{Unbiasedness of OLS Estimation}
+\label{ch:week4}
+\section{Concept, Assumptions and Theorem: Simple OLS}
+\sourcepage{4}{1}{4/1}
+\label{sec:unbiasedness-concept}
+Objectives:
+\begin{enumerate}
+\item State the assumptions for \hy{finite-sample unbiasedness}（有限样本无偏性）.
+\item Explain zero conditional mean in economic language（用经济语言解释零条件均值）.
+\item Determine the direction of omitted-variable bias in standard cases.
+\end{enumerate}
+\subsection{Recap of estimation and goodness of fit}
+\[y=\beta_0+\beta_1x+u,\qquad
+\hat y=\hat\beta_0+\hat\beta_1x,\]
+\[\hat\beta_1=\frac{\Cov_n(x,y)}{\Var_n(x)},\qquad
+\hat\beta_0=\bar y-\hat\beta_1\bar x,\qquad
+R^2=\frac{\ESS}{\TSS}=1-\frac{\RSS}{\TSS}.\]
+The $R^2$ identity here assumes an intercept and positive TSS.
+
+\subsection{A parameter versus an estimator}
+\begin{description}
+\item[$\beta_j$.] A fixed but unknown population parameter（固定但未知的总体参数）.
+\item[$\hat\beta_j$.] An estimator computed from a random sample. Before the sample is observed it is a random variable, varies across samples, and has a sampling distribution with moments when they exist.
+\end{description}
+In a particular realised sample the estimate may be above or below $\beta_j$; equality is neither required nor generally expected.\corr{estimator-estimate}
+
+\begin{definition}[Unbiased estimator]
+An estimator $\hat\theta$ of $\theta$ is \hy{unbiased} if its expectation exists and
+\[\hm{\E[\hat\theta]=\theta}.\]
+For OLS we seek conditions giving $\E[\hat\beta_0]=\beta_0$ and $\E[\hat\beta_1]=\beta_1$.
+\end{definition}
+Across repeated samples, the expected estimate equals the true population value. In any one sample, an estimate may deviate substantially from the truth. \blue{无偏性描述重复抽样的平均表现，不保证某一次估计恰好正确，也不保证估计误差很小。}
+
+\subsection{Assumptions: overview}
+\begin{enumerate}[label=SLR\arabic*.]
+\item Linear in parameters: $y=\beta_0+\beta_1x+u$.
+\item Random sampling: $\{(x_i,y_i):i=1,\ldots,n\}$ are i.i.d. observations from the population model.
+\item Sample variation: $S_{xx}=\sum_i(x_i-\bar x)^2>0$.
+\item Zero conditional mean: $\E[u\mid x]=0$.
+\end{enumerate}
+\added{For an unconditional unbiasedness statement, assume the OLS estimator is well-defined almost surely and the expectations used below exist. Neither normal errors nor homoskedasticity is needed for this mean-unbiasedness result.}
+
+\subsection{The simple OLS assumptions in detail}
+\sourcepage{4}{2}{4/2}
+\paragraph{SLR1: linear in parameters.}
+\[\hy{$y=\beta_0+\beta_1x+u$}.\]
+The unknown coefficients enter linearly. Transformations of observed variables can be included without making the model nonlinear in its parameters.
+
+\paragraph{SLR2: random sampling.}
+Each observation satisfies $y_i=\beta_0+\beta_1x_i+u_i$. The pairs $(x_i,y_i)$ are independent across $i$ and identically distributed. Thus $u_i=y_i-\beta_0-\beta_1x_i$ is independent of $u_j$ for $i\ne j$; this does not assert that $u_i$ is independent of its own regressor $x_i$.
+\begin{figure}[htbp]
+\centering\includegraphics[width=.79\linewidth]{population_errors.pdf}
+\caption{Population errors are vertical deviations from the conditional mean, not residuals from an estimated line. This redraw follows the two-observation sketch; the observations are schematic.}
+\label{fig:population-errors}
+\end{figure}
+
+\paragraph{SLR3: variation in the regressor.}
+The observed $x_i$ cannot all take the same value:
+\[\hy{$S_{xx}=\sum_i(x_i-\bar x)^2>0$}.\]
+If all $x_i$ coincide, the slope formula has a zero denominator and the separate intercept and slope cannot be recovered.
+
+\paragraph{SLR4: zero conditional mean.}
+\[\hy{$\E[u_i\mid x_i]=0$}\qquad(i=1,\ldots,n).\]
+The average unobserved component is zero at each value of the explanatory variable. Under independent sampling this also implies
+\[\E[u_i\mid\mathcal X]=0,\qquad\mathcal X=(x_1,\ldots,x_n),\]
+because the other observations' regressors provide no additional information about $u_i$ once $x_i$ is known. Conditioning on the \emph{whole observed design} is needed in the proof, because $S_{xx}$ is random before sampling.\corr{conditioning}
+
+\begin{theorem}[Unbiasedness of simple OLS]\label{thm:simple-unbiased}
+Under SLR1--SLR4 and the existence conditions above,
+\[\E[\hat\beta_0\mid\mathcal X]=\beta_0,\qquad
+\E[\hat\beta_1\mid\mathcal X]=\beta_1.\]
+Consequently $\E[\hat\beta_0]=\beta_0$ and $\E[\hat\beta_1]=\beta_1$.
+\end{theorem}
+
+\subsection{Proof for the slope}
+Expand the slope formula step by step:
+\begin{align}
+\hat\beta_1
+&=\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}{S_{xx}}
+=\frac{\sum_i(x_i-\bar x)y_i}{S_{xx}}\notag\\
+&=\frac{\sum_i(x_i-\bar x)(\beta_0+\beta_1x_i+u_i)}{S_{xx}}\notag\\
+&=\frac{\beta_0\sum_i(x_i-\bar x)
++\beta_1\sum_i(x_i-\bar x)x_i+\sum_i(x_i-\bar x)u_i}{S_{xx}}.\label{eq:slope-expansion}
+\end{align}
+Now $\sum_i(x_i-\bar x)=0$, and
+\begin{align*}
+S_{xx}&=\sum_i(x_i^2-2x_i\bar x+\bar x^2)
+=\sum_i x_i^2-n\bar x^2\\
+&=\sum_i x_i(x_i-\bar x).
+\end{align*}
+Hence
+\begin{equation}\label{eq:slope-error}
+\hm{\hat\beta_1=\beta_1+\frac{\sum_i(x_i-\bar x)u_i}{S_{xx}}}.
+\end{equation}
+\begin{align*}
+\E[\hat\beta_1\mid\mathcal X]
+&=\beta_1+\frac{\sum_i(x_i-\bar x)\E[u_i\mid\mathcal X]}{S_{xx}}\\
+&=\beta_1.
+\end{align*}
+Finally, $\E[\hat\beta_1]=\E\{\E[\hat\beta_1\mid\mathcal X]\}=\beta_1$. \red{不能在无条件期望中直接把随机分母 $S_{xx}$ 提到期望外。}\corr{conditioning}
+
+\subsection{Proof for the intercept: Exam}
+\sourcepage{4}{3}{4/3}
+\label{sec:intercept-proof}
+By the model and sample averaging,
+\[\bar y=\beta_0+\beta_1\bar x+\bar u,\qquad
+\bar u=\frac1n\sum_i u_i.\]
+Substitute this into $\hat\beta_0=\bar y-\hat\beta_1\bar x$:
+\[\hat\beta_0=\beta_0+(\beta_1-\hat\beta_1)\bar x+\bar u.\]
+Thus
+\begin{align*}
+\E[\hat\beta_0\mid\mathcal X]
+&=\beta_0+\bar x\bigl(\beta_1-\E[\hat\beta_1\mid\mathcal X]\bigr)
++\E[\bar u\mid\mathcal X]\\
+&=\beta_0+\bar x(\beta_1-\beta_1)+0=\beta_0.
+\end{align*}
+The $\bar u$ term enters with a \emph{plus} sign; the handwritten proof contains an inconsistent intermediate minus sign, corrected here.\corr{intercept-sign}
+Iterated expectations then gives $\E[\hat\beta_0]=\beta_0$.
+
+\subsection{Discussion: what if assumptions are violated?}
+\blue{原稿在此处另有课堂时间标记：15 分钟。}
+\begin{description}
+\item[SLR1: linear in parameters.] A model nonlinear in the unknown coefficients falls outside this particular linear-OLS proof. \blue{非线性参数与变量的非线性变换要区分。}
+\item[SLR2: random sampling.] The source lists serial correlation (autocorrelation) in time series, unrepresentative samples, and spillover effects across observations. These invalidate the stated i.i.d. setup, or raise representativeness and model concerns. They do \emph{not} by themselves prove that every OLS coefficient is biased; conditional mean restrictions must be examined separately.\corr{violations}
+\item[SLR3: sample variation.] If $S_{xx}=0$, the simple slope is not identified separately from the intercept.
+\item[SLR4: zero conditional mean.] In observational settings omitted factors may be related to regressors. If $\Cov(x,u)\ne0$, ZCM cannot hold. But ZCM is stronger than zero covariance: $\Cov(x,u)=0$ does not imply $\E[u\mid x]=0$. A failure of ZCM alone does not logically guarantee a nonzero finite-sample bias in every possible design.\corr{zcm-covariance}
+\end{description}
+\added{The source's covariance identity is
+\[\Cov(x,u)=\E[xu]-\E[x]\E[u].\]
+ZCM implies both $\E[u]=0$ and $\E[xu]=0$, subject to moment existence. The reverse implication is not generally valid.}
+
+\section{Multiple OLS: Assumptions and Theorem}
+\sourcepage{4}{4}{4/5}
+\label{sec:multiple-unbiased}
+\subsection{MLR1: linear in parameters}
+The population model is
+\[y=\beta_0+\beta_1x_1+\beta_2x_2+\cdots+\beta_kx_k+u.\]
+The coefficients $\beta_0,\ldots,\beta_k$ are unknown constants of interest; $u$ is the error term.
+
+\subsection{MLR2: random sampling}
+There is an i.i.d. sample of $n$ observation vectors
+\[\{(x_{1i},\ldots,x_{ki},y_i):i=1,\ldots,n\}\]
+from this population model, so $y_i=\beta_0+\sum_{j=1}^k\beta_jx_{ji}+u_i$.
+
+\subsection{MLR3: no perfect collinearity}
+The sample design, including its intercept column, has full column rank. No non-intercept regressor is constant, and no regressor is an exact linear combination of the other columns. \blue{相关可以存在；完全线性的重复信息会使单独系数无法识别。}
+
+\begin{example}[Perfect collinearity]
+The original examples are retained:
+\begin{enumerate}
+\item A constant regressor: $x_1=10$ in a model already containing an intercept.
+\item Exact scaling or an affine relation: $x_1=2x_2$, or $x_1=a+bx_2$.
+\item An exact linear combination: $x_3=x_1+x_2$.
+\end{enumerate}
+\begin{figure}[htbp]
+\centering\includegraphics[width=.72\linewidth]{no_sample_variation.pdf}
+\caption{If $x_i=c$ for every observation, only $\beta_0+c\beta_1$ is identified. This reproduces the source's constant-$x$ sketch using schematic points.}
+\label{fig:no-variation}
+\end{figure}
+In a regression containing $\ln(\mathrm{income})$, adding $2\ln(\mathrm{income})$ creates perfect collinearity. Likewise, a model containing expenditure A, expenditure B and total expenditure is collinear when total expenditure $=$ expenditure A $+$ expenditure B.
+
+Keeping expenditure A and B but omitting their exact total does not itself create this particular collinearity. The specification
+\[y=\beta_0+\beta_1\ln(\mathrm{income})
++\beta_2[\ln(\mathrm{income})]^2+u\]
+is not \emph{automatically} perfectly collinear: a squared regressor is generally not an affine transformation of its level. \blue{它对变量可以非线性，但对参数仍线性。} Special samples with too few distinct values can still fail full rank.\corr{collinearity}
+\end{example}
+
+
+\subsection{MLR4: zero conditional mean}
+\sourcepage{4}{5}{4/6}
+\[\hm{\E[u\mid x_1,x_2,\ldots,x_k]=0}.\]
+The explanatory variables do not systematically predict the error's conditional mean. In the terminology used in these notes, this is the mean-exogeneity condition. \red{它推出与误差不相关；仅仅不相关不足以推出这个条件。}\corr{zcm-covariance}
+The source contrasts exogenous and endogenous regressors. In a structural model, regressors related to omitted determinants in $u$ can be endogenous; a zero sample covariance with \emph{fitted residuals} is not evidence against that problem.
+
+\begin{theorem}[Unbiasedness of multiple OLS]\label{thm:multiple-unbiased}
+Under MLR1--MLR4, almost-sure full rank and the existence of the relevant expectations,
+\[\E[\hat\beta_j\mid\mathcal X]=\beta_j,
+\qquad\E[\hat\beta_j]=\beta_j,\qquad j=0,1,\ldots,k,\]
+where $\mathcal X$ denotes the entire observed regressor matrix.
+\end{theorem}
+
+\subsection{Proof using partialling out / 控制其他因素}
+\label{sec:fwl-week4}
+Fix a regressor $x_j$. Following the source, regress it on a constant and all the other regressors:
+\begin{equation}\label{eq:auxiliary-j}
+x_{ji}=\hat\delta_0+\sum_{\ell\ne j}\hat\delta_\ell x_{\ell i}+\hat r_{ji}.
+\end{equation}
+\blue{不同样本会有不同的辅助回归系数和残差。给定整组 $\mathcal X$，这些量都是已确定的。}
+The auxiliary normal equations give
+\[\sum_i\hat r_{ji}=0,\qquad
+\sum_i x_{\ell i}\hat r_{ji}=0\quad(\ell\ne j).\]
+Define the \emph{auxiliary} residual sum of squares
+\[S_{r_jr_j}=\sum_i\hat r_{ji}^{\,2}>0.
+\]
+It is the source's ``$\RSS_j$'', distinct from the residual sum of squares of the outcome regression. Since $x_{ji}$ equals its fitted auxiliary component plus $\hat r_{ji}$,
+\[\sum_i\hat r_{ji}x_{ji}=\sum_i\hat r_{ji}^{\,2}=S_{r_jr_j}.
+\]
+FWL, in its one-sided coefficient form, gives
+\begin{align}
+\hat\beta_j
+&=\frac{\Cov_n(\hat r_j,y)}{\Var_n(\hat r_j)}
+=\frac{\sum_i\hat r_{ji}y_i}{S_{r_jr_j}}\notag\\
+&=\frac{\sum_i\hat r_{ji}\left(\beta_0+\sum_{\ell=1}^k\beta_\ell x_{\ell i}+u_i\right)}{S_{r_jr_j}}\notag\\
+&=\hm{\beta_j+\frac{\sum_i\hat r_{ji}u_i}{S_{r_jr_j}}}.\label{eq:multiple-slope-error}
+\end{align}
+All the other-regressor terms vanish by auxiliary orthogonality. Taking conditional expectations,
+\[\E[\hat\beta_j\mid\mathcal X]
+=\beta_j+\frac{\sum_i\hat r_{ji}\E[u_i\mid\mathcal X]}{S_{r_jr_j}}
+=\beta_j.\]
+Iterated expectations proves the unconditional result for every slope.
+\added{The intercept follows from
+\[\hat\beta_0=\bar y-\sum_{j=1}^k\hat\beta_j\bar x_j
+=\beta_0+\bar u+\sum_{j=1}^k(\beta_j-\hat\beta_j)\bar x_j.\]
+Conditioning on $\mathcal X$ makes every $\bar x_j$ fixed; the slope result and $\E[\bar u\mid\mathcal X]=0$ then give $\E[\hat\beta_0\mid\mathcal X]=\beta_0$.}
+
+\section{Assumptions Summary and Unbiasedness}
+\sourcepage{4}{6}{4/7}
+\label{sec:assumptions-summary}
+\paragraph{核心：controlling for.}
+多元回归的核心能力是通过 FWL 排除其他已观测因素的线性影响，识别某一自变量剩余变化与结果的关系。\blue{“纯净影响”的因果说法仍依赖适当的模型与外生性，不能仅由控制操作保证。}
+
+\paragraph{无偏性的本质：重复抽样的平均性质.}
+单次抽样的具体估计是一个已经实现的数值；生成这些数值的 OLS 估计程序才有统计意义上的无偏性。
+
+\subsection{The four assumptions side by side}
+\begin{center}
+\small\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{P{3.1cm}P{5.35cm}P{6.3cm}}
+\toprule
+Assumption & Simple regression & Multiple regression\\
+\midrule
+Linearity in parameters & $y=\beta_0+\beta_1x+u$ & $y=\beta_0+\sum_{j=1}^k\beta_jx_j+u$\\
+Random sampling & i.i.d. pairs $(x_i,y_i)$ & i.i.d. vectors $(x_{1i},\ldots,x_{ki},y_i)$\\
+Sample rank & $\sum_i(x_i-\bar x)^2>0$ & No exact linear relationship among the design columns, including the constant\\
+Zero conditional mean & $\E[u\mid x]=0$ & $\E[u\mid x_1,\ldots,x_k]=0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{example}[A realised education-return estimate]\label{ex:unbiased-number}
+The source gives
+\[\widehat{\ln(\wage)}
+=0.284+0.092\educ+0.0041\,\mathrm{exper}+0.022\,\mathrm{tenure}.\]
+If MLR1--MLR4 hold, can we say ``9.2\% is an unbiased estimate of the return to education''?
+
+\red{The relevant property belongs to the estimator.} The number $0.092$ is one realised estimate. A precise statement is that the OLS estimator of the log-wage coefficient is unbiased under the stated assumptions; its realisation in this sample is $0.092$.
+
+The source's ``9.2\%'' is the approximate one-year percentage interpretation. The exact constant-error percentage transformation is
+\[100(e^{0.092}-1)\simeq9.64\%.
+\]
+\added{Even if $\hat\beta$ is unbiased for $\beta$, the nonlinear transform $e^{\hat\beta}-1$ need not be unbiased for $e^\beta-1$. Also, fitting log wages does not by itself identify a causal education return or the conditional mean of wages in levels.}\corr{unbiased-log}
+\end{example}
+
+\section{Model Specification and Bias}
+\sourcepage{4}{7}{4/8}
+\label{sec:model-specification}
+There are two specification cases: \hy{overspecification}, including irrelevant variables; and \hy{underspecification}, omitting relevant variables.
+
+\subsection{Including an irrelevant variable}
+Start from
+\[y=\beta_0+\beta_1x_1+\beta_2x_2+u.\]
+Now estimate a model also containing $x_3$, with its population coefficient $\beta_3=0$. The expanded sample must retain full rank: $x_3$ must not be an exact linear combination of the existing design columns.
+
+If the \emph{expanded} exogeneity condition holds,
+\[\E[u\mid x_1,x_2,x_3]=0,
+\]
+then the full-model OLS estimators remain unbiased:
+\[\E[\hat\beta_j]=\beta_j\quad(j=0,1,2),\qquad
+\E[\hat\beta_3]=0.
+\]
+\red{But $\E[u\mid x_1,x_2]=0$ alone does not imply $\E[u\mid x_1,x_2,x_3]=0$.} Adding a regressor associated with the error can change the conditional-mean restriction. An irrelevant coefficient is not, on its own, proof that this additional control is exogenous.\corr{irrelevant-exogeneity}
+
+\added{Under the homoskedastic fixed-design model, including an irrelevant regressor weakly increases the conditional variance of an existing slope when it reduces that regressor's residual variation. It need not strictly increase it, and a realised estimated standard error need not rise. The original note's ``variance increases'' is read with these qualifications.}\corr{irrelevant-variance}
+
+\subsection{Omitting a relevant variable}
+\label{sec:ovb-sample}
+Let the true long model be
+\[y_i=\beta_0+\beta_1x_i+\beta_2z_i+u_i,\qquad
+\E[u_i\mid x_i,z_i]=0.\]
+Its fitted version is
+\[y_i=\hat\beta_0+\hat\beta_1x_i+\hat\beta_2z_i+\hat u_i.
+\]
+If $z$ is unobserved or omitted, the short regression fits $y$ on $(1,x)$:
+\[y_i=\hat{\tilde\beta}_0+\hat{\tilde\beta}_1x_i+\hat v_i,
+\qquad v_i=\beta_2z_i+u_i\ \text{in the structural equation}.
+\]
+Omitting a relevant variable is problematic for the slope on $x$ when the omitted component is related to $x$; relevance alone is not enough.\corr{omitting-relevant}
+
+\paragraph{Exact sample short--long identity.}
+The exact sample relation is
+\begin{equation}\label{eq:sample-ovb}
+\hm{\hat{\tilde\beta}_1=\hat\beta_1+\hat\beta_2\hat\delta_1},
+\end{equation}
+where $\hat\delta_1$ comes from the auxiliary OLS regression
+\[z_i=\hat\delta_0+\hat\delta_1x_i+\hat r_i,
+\qquad
+\hat\delta_1=\frac{\sum_i(x_i-\bar x)(z_i-\bar z)}{S_{xx}}.
+\]
+First, the long-model residual is sample-orthogonal to $x$ and the constant:
+\begin{align*}
+\sum_i(x_i-\bar x)(\hat u_i-\bar{\hat u})
+&=\sum_i x_i\hat u_i-\bar x\sum_i\hat u_i\\
+&=0.
+\end{align*}
+Substituting the demeaned long fitted equation into the short slope formula gives
+\begin{align*}
+\hat{\tilde\beta}_1
+&=\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}{S_{xx}}\\
+&=\frac{\sum_i(x_i-\bar x)\left[\hat\beta_1(x_i-\bar x)
++\hat\beta_2(z_i-\bar z)+(\hat u_i-\bar{\hat u})\right]}{S_{xx}}\\
+&=\hat\beta_1+\hat\beta_2\frac{\sum_i(x_i-\bar x)(z_i-\bar z)}{S_{xx}}+0\\
+&=\hat\beta_1+\hat\beta_2\hat\delta_1.
+\end{align*}
+This is an algebraic identity for the same realised sample; it does not yet take expectations.
+
+\subsection{Expected bias: which quantities are random?}
+\sourcepage{4}{8}{4/9}
+\label{sec:ovb-expectation}
+Let $\mathcal X$ now include all sampled $x_i$ and $z_i$. Under the valid long model,
+\[\E[\hat\beta_1\mid\mathcal X]=\beta_1,
+\qquad\E[\hat\beta_2\mid\mathcal X]=\beta_2.
+\]
+The auxiliary slope $\hat\delta_1$ is fixed \emph{given} this design. Thus
+\begin{align}
+\E[\hat{\tilde\beta}_1\mid\mathcal X]
+&=\E[\hat\beta_1+\hat\beta_2\hat\delta_1\mid\mathcal X]\notag\\
+&=\hm{\beta_1+\beta_2\hat\delta_1},\label{eq:ovb-conditional}\\
+\E[\hat{\tilde\beta}_1]
+&=\beta_1+\beta_2\E[\hat\delta_1].\label{eq:ovb-unconditional}
+\end{align}
+Equivalently, retaining the source's iterated-expectation route,
+\begin{align*}
+\E[\hat\beta_2\hat\delta_1]
+&=\E\{\E[\hat\beta_2\hat\delta_1\mid\mathcal X]\}\\
+&=\E\{\hat\delta_1\E[\hat\beta_2\mid\mathcal X]\}
+=\beta_2\E[\hat\delta_1].
+\end{align*}
+\added{To obtain the source's finite-sample expression
+\[\E[\hat{\tilde\beta}_1]=\beta_1+\beta_2\delta_1,\]
+one also needs $\E[\hat\delta_1]=\delta_1$. A sufficient additional condition is a correctly specified auxiliary conditional mean
+\[\E[z\mid x]=\delta_0+\delta_1x\]
+with random sampling, sample variation and the requisite integrability. Defining $\delta_1$ only as the population projection slope does not automatically establish this finite-sample equality.}\corr{ovb-levels}
+
+For the \emph{population linear projection}, without imposing this additional linear conditional mean, the slope difference is still
+\[\tilde\beta_1-\beta_1=\beta_2\delta_1,
+\qquad\delta_1=\frac{\Cov(x,z)}{\Var(x)}.
+\]
+Under the usual consistency conditions it also describes the asymptotic slope difference. These population and asymptotic statements should not be confused with the exact sample identity or a finite-sample expectation.
+
+\subsection{Direction of omitted-variable bias}
+When the applicable slope difference or bias is $B=\beta_2\delta_1$,
+\begin{description}
+\item[Upward.] $B>0$: the short slope is higher than the target $\beta_1$.
+\item[Downward.] $B<0$: the short slope is lower than the target $\beta_1$.
+\item[Zero.] $B=0$, for example $\beta_2=0$ or $\delta_1=0$.
+\end{description}
+For $\Var(x)>0$, the sign of $\delta_1$ is the sign of $\Cov(x,z)$. The original sign table becomes
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lcc}
+\toprule
+ & $\Cov(x,z)>0$ ($\delta_1>0$) & $\Cov(x,z)<0$ ($\delta_1<0$)\\
+\midrule
+$\beta_2>0$ & \hy{Upward} & Downward\\
+$\beta_2<0$ & Downward & \hy{Upward}\\
+\bottomrule
+\end{tabular}
+\end{center}
+\blue{该表直接适用于总体投影差；用于有限样本平均偏差时，应满足上一小节的附加条件。给定样本设计的偏差方向则由 $\hat\delta_1$ 决定。}
+
+\paragraph{Biased toward zero / 向零偏.}
+For a positive $\beta_1$, movement toward zero is downward; for a negative $\beta_1$, it is upward. To use the usual attenuation interpretation, the shifted coefficient must remain between the target and zero. \red{方向正确但越过零，不能仅凭 upward/downward 就称为向零偏。}\corr{toward-zero}
+
+\subsection*{Chapter recap / 本章小结}
+\addcontentsline{toc}{subsection}{Chapter recap / 本章小结}
+\begin{itemize}
+\item Unbiasedness is an expectation property of the estimator over repeated samples.
+\item Full-rank sample variation and zero conditional mean underpin the conditional-expectation proof; mere zero covariance is weaker.
+\item Adding a valid irrelevant control preserves unbiasedness but can cost precision. Omitting a relevant, associated regressor changes the slope.
+\item Keep sample identities, conditional bias, unconditional finite-sample bias and population projection differences distinct.
+\end{itemize}

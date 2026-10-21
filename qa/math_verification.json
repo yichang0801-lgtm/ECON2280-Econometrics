@@ -1,0 +1,95 @@
+{
+  "normal_equations": {
+    "passed": true,
+    "max_absolute_error": 3.708144902248023e-14
+  },
+  "tss_equals_ess_plus_rss": {
+    "passed": true,
+    "max_absolute_error": 2.842170943040401e-14
+  },
+  "r2_equals_squared_correlation": {
+    "passed": true,
+    "max_absolute_error": 0.0
+  },
+  "fwl_one_sided_slope": {
+    "passed": true,
+    "max_absolute_error": 2.220446049250313e-16
+  },
+  "fwl_two_sided_slope": {
+    "passed": true,
+    "max_absolute_error": 0.0
+  },
+  "fwl_two_sided_residuals": {
+    "passed": true,
+    "max_absolute_error": 1.7763568394002505e-15
+  },
+  "short_long_exact_sample_identity": {
+    "passed": true,
+    "max_absolute_error": 4.440892098500626e-16
+  },
+  "demeaning_preserves_intercept_model_slope": {
+    "passed": true,
+    "max_absolute_error": 2.220446049250313e-16
+  },
+  "rto_inner_product": {
+    "passed": true,
+    "max_absolute_error": 2.609024107869118e-15
+  },
+  "rto_covariance": {
+    "passed": true,
+    "max_absolute_error": 1.0408340855860843e-16
+  },
+  "conditional_omitted_variable_bias": {
+    "passed": true,
+    "max_absolute_error": 6.661338147750939e-16
+  },
+  "source_wage_arithmetic": {
+    "passed": true,
+    "max_absolute_error": 0.0
+  },
+  "source_vote_arithmetic": {
+    "passed": true,
+    "max_absolute_error": 7.105427357601002e-15
+  },
+  "source_gpa_arithmetic": {
+    "passed": true,
+    "max_absolute_error": 6.938893903907228e-18
+  },
+  "zero_covariance_counterexample": {
+    "passed": true,
+    "max_absolute_error": 0.0
+  },
+  "figure_r2_094": {
+    "passed": true,
+    "max_absolute_error": 0.0
+  },
+  "figure_r2_064": {
+    "passed": true,
+    "max_absolute_error": 0.0
+  },
+  "example_values": {
+    "wage12_thousands": 5.58,
+    "wage16_thousands": 7.74,
+    "anson_residual_thousands": -5.574,
+    "anson_scenario_thousands": 2.166,
+    "vote_share_at_40": 45.370000000000005,
+    "required_share_percent": 49.97844827586207,
+    "gpa_anson": 3.1575,
+    "gpa_betty": 2.9874,
+    "gpa_increment": 0.04530000000000001,
+    "adjusted_r2_one": 0.16604316546762588,
+    "adjusted_r2_two": 0.1640579710144926,
+    "exact_education_percentage": 9.636482208081699,
+    "required_A_billions": 1.9982766049116762
+  },
+  "figure_statistics": {
+    "r2_0.94": 0.94,
+    "r2_0.64": 0.64,
+    "through_origin": {
+      "slope": 2.7818181818181817,
+      "centered_r2": -37.19090909090909,
+      "rss": 76.38181818181818,
+      "tss": 2.0
+    }
+  }
+}
