@@ -1,7 +1,3 @@
-# Estella-Xie
-
-HKU Business School — BEcon & Fin, Year 2
-
 ## ECON2280：OLS 回归学习笔记
 
 [直接阅读完整中文 PDF](Econometrics中文版笔记.pdf) · [LaTeX 主文件](main.tex) · [原稿逐页对应表](SOURCE_MAP.csv) · [整合与核对记录](qa/)
